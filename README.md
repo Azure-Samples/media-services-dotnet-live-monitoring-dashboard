@@ -30,7 +30,7 @@ Next, update the application manifest to specify the type of roles supported by 
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-upload-manifest.png)
 ### Update Application Configuration File
 Next, in the [new Azure portal](portal.azure.com/), create a web application and SQL database. Update the **contentProviders** section of the template configuration file, **mediadashboardconfig.json**, with parameters for your media service account, associated storage account, SQL database. Upload this configuration file into a blob storage container named **config** in your associated storage account.
-Next, add the following key-value pairs to your application's properties (make sure to fill in your associated storage account's name and key for the DefaultEndpointsProtocol):
+Next, add the following key-value pairs to your application's properties (make sure to fill in your associated storage account's name and key for the MediaDashboard.ConfigurationFileAccount):
 
  - MediaDashboard.ConfigurationFileAccount - DefaultEndpointsProtocol=https;AccountName=**storageaccountname**;AccountKey=**storageaccountkey**
  -  ida:ClientId - The client ID of the AAD app
