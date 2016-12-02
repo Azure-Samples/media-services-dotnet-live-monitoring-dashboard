@@ -33,9 +33,9 @@ Next, in the [new Azure portal](portal.azure.com/), create a web application and
 Next, add the following key-value pairs to your application's properties (make sure to fill in your associated storage account's name and key for the DefaultEndpointsProtocol):
 
  - DefaultEndpointsProtocol - https;AccountName=**storageaccountname**;AccountKey=**storageaccountkey**
- -  ida:ClientId - The client ID of the active directory app you created
- -  ida:ClientSecret – The client secret generated in the tenant app
- -  ida:TenantId: From the tenant app
+ -  ida:ClientId - The client ID of the AAD app
+ -  ida:ClientSecret - The client secret generated in the AAD app
+ -  ida:TenantId - The tenant ID of the AAD app
 
 The image below illustrates where to source these values from.
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-client-properties.PNG)
