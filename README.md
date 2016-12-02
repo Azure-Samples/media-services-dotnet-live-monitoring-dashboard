@@ -32,7 +32,7 @@ Next, update the application manifest to specify the type of roles supported by 
 Next, in the [new Azure portal](portal.azure.com/), create a web application and SQL database. Update the **contentProviders** section of the template configuration file, **mediadashboardconfig.json**, with parameters for your media service account, associated storage account, SQL database. Upload this configuration file into a blob storage container named **config** in your associated storage account.
 Next, add the following key-value pairs to your application's properties (make sure to fill in your associated storage account's name and key for the DefaultEndpointsProtocol):
 
- - DefaultEndpointsProtocol - https;AccountName=**storageaccountname**;AccountKey=**storageaccountkey**
+ - MediaDashboard.ConfigurationFileAccount - DefaultEndpointsProtocol=https;AccountName=**storageaccountname**;AccountKey=**storageaccountkey**
  -  ida:ClientId - The client ID of the AAD app
  -  ida:ClientSecret - The client secret generated in the AAD app
  -  ida:TenantId - The tenant ID of the AAD app
