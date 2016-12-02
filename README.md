@@ -17,13 +17,29 @@ The Live Monitoring Dashboard enables Azure Media Services (AMS) customers to vi
 Special thanks to [Prakash Duggaraju](https://github.com/duggaraju) for his help and contributions to this project.
 
 ## Getting Started
+### Create Azure Active Directory (AAD) Tenant
+To deploy this application, first create a host Azure Active Directory tenant through the [old Azure portal](manage.windowsazure.com/). In this tenant, create an application by clicking on **Add** under the **Applications** tab. Next, provide an application name and properties, as illustrated below.
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-applications.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-create-application.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-application-properties.png)
+### Update Application Manifest
+Next, update the application manifest to specify the type of roles supported by the application. Once the application is created, click on **Manage Manifest** then **Download Manifest**. In the downloaded manifest, replace the **appRoles** line with the content of the **rolesettiings.xml** file from the **\Monitoring Dashboard\MediaDashboard** directory. Upload the updated manifest file. Lastly, generate and save a tenant client secret key. Make sure to record this key in a safe place.
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-application-created.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/original-manifest.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/updated-manifest.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-upload-manifest.png)
+### Update Application Configuration File
+Next, in the [new Azure portal](portal.azure.com/), create a web application and SQL database. Update the **contentProviders** section of the template configuration file, **mediadashboardconfig.json**, with parameters for your media service account, associated storage account, SQL database. Upload this configuration file into a blob storage container named **config** in your associated storage account.
+Next, add the following key-value pairs to your application's properties (make sure to fill in your associated storage account's name and key for the DefaultEndpointsProtocol):
+
+ - DefaultEndpointsProtocol - https;AccountName=**storageaccountname**;AccountKey=**storageaccountkey**
+ -  ida:ClientId - The client ID of the active directory app you created
+ -  ida:ClientSecret – The client secret generated in the tenant app
+ -  ida:TenantId: From the tenant app
+
+The image below illustrates where to source these values from.
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-client-properties.PNG)
+### Assign User Roles
+Lastly, specify the user role for all individuals who will access the application as either **Operator** or **Administrator** under the **User** tab of the application page.
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-user-role-assignments.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-assign-user-roles.png)
