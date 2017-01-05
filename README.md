@@ -25,8 +25,7 @@ Next, update the application manifest to specify the type of roles supported by 
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-application-created.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/original-manifest.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/updated-manifest.png)
-![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-upload-manifest.png)
-### Update Application Configuration File
+![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-upload-manifest.png)### Update Application Configuration File
 Next, in the [new Azure portal](portal.azure.com/), create a web application and SQL database. Update the **contentProviders** section of the template configuration file, **mediadashboardconfig.json**, with parameters for your media service account, associated storage account, SQL database. Upload this configuration file into a blob storage container named **config** in your associated storage account.
 Next, add the following key-value pairs to your application's properties (make sure to fill in your associated storage account's name and key for the MediaDashboard.ConfigurationFileAccount):
 
@@ -67,8 +66,8 @@ Lastly, specify the user role for all individuals who will access the applicatio
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-user-role-assignments.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-assign-user-roles.png)
 ### Deploy from Visual Studio
-The last step is to build and deploy the application from Visual Studio. Open the solution in Visual Studio, right-click on the **MediaDashboard.Web** project, select **Publish** and complete the Publish Web Application wizard. Create a new publish profile and select **Microsoft Azure Web Apps** as your publish target. Enter the credentials for your Azure subscription and select the web app that you created. Update the Connection string with the domain name of your Azure site.
-Alternatively, you can download the Publish Profile for your application for the Azure Portal and upload it through the Publish wizard in Visual Studio.
+The last step is to build and deploy the application from Visual Studio. Open the solution in Visual Studio, right-click on the **MediaDashboard.Web** project, select **Publish** and complete the Publish Web Application wizard. Create a new publish profile and select **Microsoft Azure Web Apps** as your publish target. Enter the credentials for your Azure subscription and select the web app that you created. Update the Connection string with the domain name of your Azure site. Alternatively, you can download the Publish Profile for your application for the Azure Portal and upload it through the Publish wizard in Visual Studio.
+
 On the Settings page, unselect **Enable Organizational Authentication** (this will recreate the application and overwrite the configuration from the previous steps). Lastly, publish the app to the destination.
 #### Debugging Errors
 If your receive any errors after publishing the application, you can debug by launching the Log Stream for your application from the Azure Portal. Under the **Development tools** section, launch **Advanced tools**. Next, select **Log stream** from the **Tools** menu. This stream can be refreshed each time you restart or republish the app for debugging purposes.
