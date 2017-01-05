@@ -42,7 +42,7 @@ Next, filled out the capitalized field entries in the **mediadashboardconfig.jso
  - contentProviders.name: descriptive name of the content provider (optional)
  - contentProviders.mediaServicesSet.descriptiveName: descriptive name of the azure media account
  - contentProviders.mediaServicesSet.dataStorageConnections.accountName: server account name (optional)
- - contentProviders.mediaServicesSet.dataStorageConnections.azureServer: server account name
+ - contentProviders.mediaServicesSet.dataStorageConnections.azureServer: server name, typically of the form: server.database.windows.net
  - contentProviders.mediaServicesSet.dataStorageConnections.initialCatalog: initial catalog name (optional)
  - contentProviders.mediaServicesSet.dataStorageConnections.dbUserName: server database username
  - contentProviders.mediaServicesSet.dataStorageConnections.dbPassword: server database password
