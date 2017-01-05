@@ -54,7 +54,7 @@ Next, filled out the capitalized field entries in the **mediadashboardconfig.jso
  - contentProviders.telemetryStorage.accountName: telemetry storage account name
  - contentProviders.telemetryStorage.accountKey: telemetry storage account key
  
-Next, upload **mediadashboardconfig.json** to a blob named **config** in your storage account. This can be done using the ![Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+Next, upload **mediadashboardconfig.json** to a blob named **config** in your storage account. This can be done using the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
 ### Update Web Configuration
 Next, update the template **Web.config** file in the **MediaDashboard.Web** project in Visual Studio. The fields to compelte are as follows:
 
