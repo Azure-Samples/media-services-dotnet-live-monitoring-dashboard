@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Operations.Api.Test", "MediaDashboard.Operations.Api.Test\MediaDashboard.Operations.Api.Test.csproj", "{225716AD-6BD8-4EE5-B09A-3F57C8134F94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Persistence", "..\MediaDashboard.Persistence\MediaDashboard.Persistence.csproj", "{D3E06D93-FF9F-434C-BB09-B1E35921D950}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Common", "..\MediaDashboard.Common\MediaDashboard.Common.csproj", "{D53099DB-F0EB-4F2C-B351-7F41149E70EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Persistence.Tests", "..\MediaDashboard.Persistence.Tests\MediaDashboard.Persistence.Tests.csproj", "{418F3723-5FCF-4A35-A410-42844A29D300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Operations.Api", "..\MediaDashboard.Operations.Api\MediaDashboard.Operations.Api.csproj", "{FA44E3D7-0C76-4B5D-95EA-EB3407FDD6EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{225716AD-6BD8-4EE5-B09A-3F57C8134F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{225716AD-6BD8-4EE5-B09A-3F57C8134F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{225716AD-6BD8-4EE5-B09A-3F57C8134F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{225716AD-6BD8-4EE5-B09A-3F57C8134F94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E06D93-FF9F-434C-BB09-B1E35921D950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E06D93-FF9F-434C-BB09-B1E35921D950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E06D93-FF9F-434C-BB09-B1E35921D950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E06D93-FF9F-434C-BB09-B1E35921D950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D53099DB-F0EB-4F2C-B351-7F41149E70EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D53099DB-F0EB-4F2C-B351-7F41149E70EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D53099DB-F0EB-4F2C-B351-7F41149E70EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D53099DB-F0EB-4F2C-B351-7F41149E70EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418F3723-5FCF-4A35-A410-42844A29D300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418F3723-5FCF-4A35-A410-42844A29D300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418F3723-5FCF-4A35-A410-42844A29D300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418F3723-5FCF-4A35-A410-42844A29D300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA44E3D7-0C76-4B5D-95EA-EB3407FDD6EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA44E3D7-0C76-4B5D-95EA-EB3407FDD6EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA44E3D7-0C76-4B5D-95EA-EB3407FDD6EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA44E3D7-0C76-4B5D-95EA-EB3407FDD6EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,85 @@
+{
+  "sys": {
+    "mdcache": {
+      "identifier": "cache-identifier-goes-here",
+      "cacheName": "cache-name-goes-here",
+      "authorizationToken": "authorization-token-goes-here"
+    }
+  },
+  "content": {
+    "dashboardTitle": "custom-title",
+    "contentProviders": [
+      {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "content-provider-1",
+        "mediaServicesSets": [
+          {
+            "descriptiveName": "Sample Simple Mediaservices Setup",
+            "loggingAccounts": [
+                {
+                    "accountName": "account-name-goes-here",
+                    "accountKey": "account-key-goes-here"
+                }
+            ],
+             "dataStorageConnection": [
+                {
+                    "accountName": "AMS-Test",
+                    "azureServer": "azure-server-name",
+                    "initialCatalog": "database-name-here",
+                    "dbUserName": "db-user-name-here",
+                    "dbPassword": "db-user-password-here"                               
+                }
+            ],
+            "mediaServicesAccounts": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "accountName": "test",
+                "accountKey": "secret-key-goes-here",
+                "adminUrl": "http://test.mediaservices.windows.net",
+                "metaData": {
+                  "location": "West Europe",
+                  "azureSubscriptionId": "yyyy-yyyy-yyyy-yyyy"
+                }
+              }
+            ]
+          },
+          {
+            "descriptiveName": "Sample High Availability Mediaservices Setup",
+            "loggingAccounts": [
+              {
+                "accountName": "account-name1-goes-here",
+                "accountKey": "account-key1-goes-here"
+              },
+              {
+                "accountName": "account-name2-goes-here",
+                "accountKey": "account-key2-goes-here"
+              }
+            ],
+            "mediaServicesAccounts": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "accountName": "test2",
+                "accountKey": "secret-key-goes-here",
+                "adminUrl": "http://test2.mediaservices.windows.net",
+                "metaData": {
+                  "location": "West Europe",
+                  "azureSubscriptionId": "yyyy-yyyy-yyyy-yyyy"
+                }
+              },
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "accountName": "test3",
+                "accountKey": "secret-key-goes-here",
+                "adminUrl": "http://test3.mediaservices.windows.net",
+                "metaData": {
+                  "location": "North Europe",
+                  "azureSubscriptionId": "qqqq-qqqq-qqqq-qqqq"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

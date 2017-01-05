@@ -1,0 +1,48 @@
+﻿@using System.Security.Claims;
+@using System.Configuration;
+<!DOCTYPE html>
+<html lang="en" ng-app="mediaApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMS Dashboard</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/Scripts/adal.min.js"></script>
+    <script src="~/Scripts/adal-angular.min.js"></script>
+    @foreach (var script in Directory.GetFiles(Server.MapPath("~/js")))
+    {
+        <script src="~/js/@Path.GetFileName(script)"></script>
+    }
+        @{
+            var clientId = ConfigurationManager.AppSettings["ida:ClientId"];
+            var aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
+            var tenantId = ConfigurationManager.AppSettings["ida:TenantId"];
+
+            <script>
+                angular.module('mediaApp')
+                    .config(['$httpProvider', 'adalAuthenticationServiceProvider', function ($httpProvider, adalAuthenticationServiceProvider) {
+                        adalAuthenticationServiceProvider.init({
+                            clientId: "@clientId",
+                            tenant: "@tenantId",
+                            instance: "@aadInstance"
+                        },
+                        $httpProvider);
+                    }]);
+            </script>
+        }
+</head>
+<body>
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>Media Dashboard &copy; @DateTime.Now.Year</p>
+    </footer>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,225 @@
+﻿body {
+    font-family: 'Segoe UI';
+    font-size: 16px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    min-width:100%;
+}
+
+.linkTo {
+     cursor: pointer;
+}
+
+.navbar-fixed-top {
+    background: #0F66A5;
+    height: 80px;
+}
+
+.navbar-header {
+    background:#037cc1;
+}
+
+#systemLoader {
+    visibility: hidden;
+}
+
+.vertical-divider {
+    border-left:1px solid #000000;
+    border-right:1px solid #000000;
+    height:80px;
+}
+
+.horizontal-divider {
+    border-top:1px solid #0F66A5;
+    border-bottom:1px solid #0F66A5;
+    width:80px;
+}
+
+.body-content {
+    top:80px;
+    position:fixed;
+    width:100%;
+}
+
+.navbar-fixed-left {
+    background:#037cc1;
+    width:80px;
+    height:100vh;
+}
+
+.row-fluid>[class*="col-"] {
+    padding-right:0px;
+    padding-left:0px;
+}
+
+.customergroup {
+    margin-left: 28px;
+    margin-top:  28px;
+}
+
+.customergroup tr {
+    text-align: center;
+    margin-bottom: 4px;
+    border: 4px solid white;
+}
+
+.customergroup td{
+    padding-left:10px;
+}
+
+.customer-name {
+    text-align: left;
+}
+
+.col-md-2 {
+    width: 20%;
+}
+.col-md-10 {
+    width: 80%;
+}
+
+.seating-chart {
+    overflow-y: auto;
+    height: 90vh;
+    margin-top: 28px;
+}
+
+.seating-chart table {
+    margin-left: 10px;
+}
+
+.seating-chart tr td{
+    padding-bottom: 2px;
+}
+
+.channel-list {
+    overflow-y:auto;
+    overflow-x:auto;
+    height: 90vh;
+    margin-top: 28px;
+    font-size: 14px;
+}
+
+.channel-list th {
+    text-align: center;
+}
+
+.account {
+    padding-left: 56px;
+    padding-right: -15px;
+}
+
+.account>table>tbody>tr {
+    background:#F4F8F9;
+    border-bottom:12px solid #F4F8F9;
+}
+
+.account>table>tbody>tr>td {
+    height:60px;
+    padding-right: 20px;
+}
+
+.icons td {
+    padding-top: 4px;
+    padding-right: 4px;
+}
+
+.thumbnails {
+    width: 90px;
+    height: 54px;
+}
+
+.thumbnails img {
+    height: auto;
+    width: 100%;
+}
+
+.popupmenu {
+    background:#d4d9dc;
+    width:52px;
+    height:52px;
+    text-align:center;
+}
+
+.list0 {
+    list-style-image:url('Level-0.png');
+    cursor:pointer;
+}
+
+.list1 {
+    list-style-image:url('Level-1.png');
+    cursor:pointer;
+}
+.list2 {
+    list-style-image:url('Level-2.png');
+    cursor:pointer;
+}
+.list3 {
+    list-style-image:url('Level-3.png');
+    cursor:pointer;
+}
+
+.level0 {
+    background:#d4d9dc;
+    width:10px;
+    height:100%;
+}
+
+.level1 {
+    background:#8cd211;
+    width:10px;
+    height:100%;
+    list-style-image:url('Level-1.png')
+}
+
+.level2 {
+    background: orange;
+    width:10px;
+    height:100%;
+}
+
+.level3 {
+    background:red;
+    width:10px;
+    height:100%;
+}
+
+.refresh-counter {
+    display: none;
+}
+
+.close-button {
+    border-radius: 5px;
+    float:right;
+    padding-right:20px;
+}
+
+.modal-lg {
+    min-height:600px;
+    max-height: 800px;
+}
+
+.modal-sm {
+}
+
+.media {
+    padding-left:15px;
+    padding-right:15px;
+    overflow:auto;
+}
+
+.defaultDiff {
+    color:crimson;
+    font-weight:bold;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="671d99c80e02439eb31ba015b3805b22" Name="Diagram1" ZoomLevel="99">
+        <EntityTypeShape EntityType="AMSDashboardModel.Alert" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.AlertType" Width="1.5" PointX="9.375" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.Channel" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.MediaServicesAccount" Width="2.25" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.Origin" Width="1.5" PointX="4.625" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.Program" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.ArchiveAlert" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.ChannelAlert" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.GlobalAlert" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AMSDashboardModel.OriginAlert" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="AMSDashboardModel.FK_Alert_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="AMSDashboardModel.FK_Alert_AlertType" ManuallyRouted="false" />
+        <AssociationConnector Association="AMSDashboardModel.FK_Alert_Channel" ManuallyRouted="false" />
+        <AssociationConnector Association="AMSDashboardModel.FK_Alert_Origin" ManuallyRouted="false" />
+        <AssociationConnector Association="AMSDashboardModel.FK_Alert_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="AMSDashboardModel.FK_Channel_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="AMSDashboardModel.FK_Program_Channel" ManuallyRouted="false" />
+        <AssociationConnector Association="AMSDashboardModel.FK_Origin_Account" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

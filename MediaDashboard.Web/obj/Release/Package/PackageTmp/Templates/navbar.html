@@ -1,0 +1,65 @@
+﻿<div ng-controller="navbarController">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <img onclick="location.hash='/home'" src="Content/iconHome.png" />
+        </div>
+        <div class="navbar-brand">
+            <h2 class="dropdown-toggle">LIVE MONITORING DASHBOARD</h2>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="vertical-divider"></li>
+                <li class="userinfo dropdown">
+                    <a class="navbar-link" data-toggle="dropdown">
+                        <div class="media-left media-middle">
+                            <img src="Content/info.png" />
+                        </div>
+                        <div class="media-right media-middle">
+                            <p>{{userInfo.userName}}</p>
+                            <small>({{ userInfo.profile.roles? userInfo.profile.roles[0] : 'Viewer'}})</small>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a ng-click="logout()">Sign Out</a></li>
+                    </ul>
+                </li>
+                <li class="vertical-divider"></li>
+                <li class="connectivity dropdown">
+                    <a data-toggle="dropdown" class="navbar-link">
+                        <div class="media-left media-middle">
+                            <img src="Content/signalGreat.png" />
+                        </div>
+                        <div class="media-middle media-right">
+                            <p>Connectivity</p>
+                            <small ng-if="!refreshing">Refresh in {{refreshDelay}} sec</small>
+                            <small ng-if="refreshing">Refreshing...</small>
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>Last refreshed: {{refreshTime|date:'medium'}}</li>
+                        <li>Refresh counter: {{refreshViewCount}}</li>
+                    </ul>
+                </li>
+                <li class="vertical-divider"></li>
+                <li><img onclick="location.reload()" src="Content/iconRefresh.png" /></li>
+                <li class="vertical-divider"></li>
+                <li class="dropdown notification">
+                    <span ng-if="operations.length>0" class="label label-pill label-primary">{{operations.length}}</span>
+                    <img data-toggle="dropdown" src="Content/iconNotification.png" />
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="operation in operations">{{operation.Message}} - {{operation.State}}</li>
+                    </ul>
+                </li>
+                <li class="vertical-divider"></li>
+                <li class="dropdown">
+                    <img data-toggle="dropdown" src="Content/iconHamburger.png" />
+                    <ul class="dropdown-menu">
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="systemLoader">
+            <i>Updating&nbsp;...&nbsp;</i>
+        </div>
+    </div>
+</div>

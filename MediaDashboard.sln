@@ -1,0 +1,100 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{45B0E5C6-E57B-4B05-A2AB-C4910E7CE7B9}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A7A9BBCD-DEE9-46C9-9F42-96D2211E8239}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Assemblies", "Shared Assemblies", "{AB7B8883-F9B5-4A45-AA98-F6F6B90D66D4}"
+	ProjectSection(SolutionItems) = preProject
+		Shared Assemblies\Microsoft.Cloud.Media.Streaming.Common.Clients.AventusClient.dll = Shared Assemblies\Microsoft.Cloud.Media.Streaming.Common.Clients.AventusClient.dll
+		Shared Assemblies\Microsoft.WindowsAzure.MediaServices.Client.dll = Shared Assemblies\Microsoft.WindowsAzure.MediaServices.Client.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{A492C22B-AFEB-4EC3-A0FD-A76FCC39C2EA}"
+	ProjectSection(SolutionItems) = preProject
+		Other\AMS Dashboard Dev Cleanup.sql = Other\AMS Dashboard Dev Cleanup.sql
+		Other\Create AMS DB.sql = Other\Create AMS DB.sql
+		Other\SetupMediaDashboardCustomConfig.reg = Other\SetupMediaDashboardCustomConfig.reg
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Persistence", "MediaDashboard.Persistence\MediaDashboard.Persistence.csproj", "{D3E06D93-FF9F-434C-BB09-B1E35921D950}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Persistence.Tests", "MediaDashboard.Persistence.Tests\MediaDashboard.Persistence.Tests.csproj", "{418F3723-5FCF-4A35-A410-42844A29D300}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Common", "MediaDashboard.Common\MediaDashboard.Common.csproj", "{D53099DB-F0EB-4F2C-B351-7F41149E70EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Ingest", "MediaDashboard.Ingest\MediaDashboard.Ingest.csproj", "{5F222B29-6904-48CF-90F2-A0B8721614A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Common.Tests", "MediaDashboard.Common.Tests\MediaDashboard.Common.Tests.csproj", "{A0C10101-0287-43E7-879D-D8B1DACEF8FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Ingest.Tests", "MediaDashboard.Ingest.Tests\MediaDashboard.Ingest.Tests.csproj", "{78EBEFF9-5C02-447D-AE26-54DA11404120}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.Web", "MediaDashboard.Web\MediaDashboard.Web.csproj", "{EF541BBB-44BE-4F0D-8CC9-4951651D16B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaDashboard.IngestWebJob", "MediaDashboard.IngestWebJob\MediaDashboard.IngestWebJob.csproj", "{365AE2AC-DAFD-4EF6-9532-412F513B4CF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediadashboard.CleanupJob", "MediaDashboard.CleanupJob\CleanupJob\Mediadashboard.CleanupJob.csproj", "{1A9711B0-E959-43C2-BD15-330FA105F4F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D3E06D93-FF9F-434C-BB09-B1E35921D950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E06D93-FF9F-434C-BB09-B1E35921D950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E06D93-FF9F-434C-BB09-B1E35921D950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E06D93-FF9F-434C-BB09-B1E35921D950}.Release|Any CPU.Build.0 = Release|Any CPU
+		{418F3723-5FCF-4A35-A410-42844A29D300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{418F3723-5FCF-4A35-A410-42844A29D300}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{418F3723-5FCF-4A35-A410-42844A29D300}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{418F3723-5FCF-4A35-A410-42844A29D300}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D53099DB-F0EB-4F2C-B351-7F41149E70EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D53099DB-F0EB-4F2C-B351-7F41149E70EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D53099DB-F0EB-4F2C-B351-7F41149E70EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D53099DB-F0EB-4F2C-B351-7F41149E70EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F222B29-6904-48CF-90F2-A0B8721614A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F222B29-6904-48CF-90F2-A0B8721614A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F222B29-6904-48CF-90F2-A0B8721614A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F222B29-6904-48CF-90F2-A0B8721614A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0C10101-0287-43E7-879D-D8B1DACEF8FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0C10101-0287-43E7-879D-D8B1DACEF8FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0C10101-0287-43E7-879D-D8B1DACEF8FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0C10101-0287-43E7-879D-D8B1DACEF8FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78EBEFF9-5C02-447D-AE26-54DA11404120}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78EBEFF9-5C02-447D-AE26-54DA11404120}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78EBEFF9-5C02-447D-AE26-54DA11404120}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78EBEFF9-5C02-447D-AE26-54DA11404120}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF541BBB-44BE-4F0D-8CC9-4951651D16B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF541BBB-44BE-4F0D-8CC9-4951651D16B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF541BBB-44BE-4F0D-8CC9-4951651D16B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF541BBB-44BE-4F0D-8CC9-4951651D16B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{365AE2AC-DAFD-4EF6-9532-412F513B4CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{365AE2AC-DAFD-4EF6-9532-412F513B4CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{365AE2AC-DAFD-4EF6-9532-412F513B4CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{365AE2AC-DAFD-4EF6-9532-412F513B4CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A9711B0-E959-43C2-BD15-330FA105F4F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A9711B0-E959-43C2-BD15-330FA105F4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A9711B0-E959-43C2-BD15-330FA105F4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A9711B0-E959-43C2-BD15-330FA105F4F5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{418F3723-5FCF-4A35-A410-42844A29D300} = {A7A9BBCD-DEE9-46C9-9F42-96D2211E8239}
+		{A0C10101-0287-43E7-879D-D8B1DACEF8FF} = {A7A9BBCD-DEE9-46C9-9F42-96D2211E8239}
+		{78EBEFF9-5C02-447D-AE26-54DA11404120} = {A7A9BBCD-DEE9-46C9-9F42-96D2211E8239}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\TransientFaultHandling.Core.5.1.1209.1\lib\NET4
+		EnterpriseLibraryConfigurationToolBinariesPathV6 = packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8
+	EndGlobalSection
+EndGlobal

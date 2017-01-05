@@ -1,0 +1,489 @@
+{
+	"sys": {
+		"cache": {
+			"identifier": "cache-identifier-goes-here",
+			"cacheName": "cache-name-goes-here",
+			"authorizationToken": "authorization-token-goes-here",
+			"localCacheDir": "%TEMP%\\mediadashboardcache",
+		}
+	},
+	"content": {
+		"dashboardTitle": "dev-title",
+		"contentProviders": [
+		{
+      "id": "00000000-0000-0000-0000-000000000001",
+			"name": "ENTER NAME",
+			"mediaServicesSets": [{
+				"descriptiveName": "ENTER DESCRIPTIVE NAME",
+				"dataStorageConnections": [{
+					"accountName": "ENTER ACCOUNT NAME",
+					"azureServer": "ENTER AZURE SERVER",
+					"initialCatalog": "ENTER DATABASE NAME",
+					"dbUserName": "ENTER DB USER NAME",
+					"dbPassword": "ENTER DB PASSWORD"
+				}],
+				"mediaServicesAccounts": [{
+					"id": "ENTER MEDIA SERVICES ACCOUNT ID",
+					"accountName": "ENTER MEDIA SERVICES ACCOUNT NAME",
+					"accountKey": "ENTER MEDIA SERVICES ACCOUNT KEY",
+					"metaData": {
+						"location": "ENTER MEDIA SERVICES ACCOUNT LOCATION",
+						"azureSubscriptionId": "yyyy-yyyy-yyyy-yyyy"
+					},
+					telemetryStorage: {
+						accountName: "ENTER STORAGE ACCOUNT NAME",
+						accountKey: "ENTER STORAGE ACCOUNT KEY"
+					}
+				}]
+			}]
+		},
+		]
+	},
+	"parameters": {
+		"defaultMetricThresholds": [{
+			"Name": "BitrateRatio",
+			"DisplayName": "Incoming / Encoded Bitrate Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.500,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.990
+		},
+		{
+			"Name": "BytesSent",
+			"DisplayName": "Data Out",
+			"Unit": "Megabits",
+			"DisplayUnit": "Mbits",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "BytesSentRate",
+			"DisplayName": "Data Out Rate",
+			"Unit": "MegabitsPerSecond",
+			"DisplayUnit": "Mbps",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 450.000,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 500.000
+		},
+		{
+			"Name": "BytesSentUtilizationRatio",
+			"DisplayName": "Data Out Utilization Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.600,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.800
+		},
+		{
+			"Name": "EncodedBitrate",
+			"DisplayName": "Encoded Bitrate",
+			"Unit": "MegabitsPerSecond",
+			"DisplayUnit": "Mbps",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "FailedRequestsRatio",
+			"DisplayName": "Failed Requests Ratio (4XX + 5XX - 412)",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.070,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.100
+		},
+		{
+			"Name": "FragmentsDroppedRate",
+			"DisplayName": "Fragments Dropped Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.000,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.100
+		},
+		{
+			"Name": "FragmentsReceivedPerFragmentLength",
+			"DisplayName": "Fragments Received Per Fragment Length",
+			"Unit": "CountPerFragmentLength",
+			"DisplayUnit": "/frag size",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "FragmentsReceivedRate",
+			"DisplayName": "Fragments Received Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.002,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.001
+		},
+		{
+			"Name": "FragmentsReceivedRatio",
+			"DisplayName": "Fragments Received Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.0,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.0
+		},
+		{
+			"Name": "FragmentsUploadedRate",
+			"DisplayName": "Fragments Uploaded Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.002,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.001
+		},
+		{
+			"Name": "FragmentWaitTime",
+			"DisplayName": "Fragment Wait Time",
+			"Unit": "Milliseconds",
+			"DisplayUnit": "ms",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 7100.000,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 12000.000
+		},
+		{
+			"Name": "Http200",
+			"DisplayName": "Http 200",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http200Rate",
+			"DisplayName": "Http 200 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http200Ratio",
+			"DisplayName": "Http 200 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http304",
+			"DisplayName": "Http 304",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http304Rate",
+			"DisplayName": "Http 304 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http304Ratio",
+			"DisplayName": "Http 304 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http400",
+			"DisplayName": "Http 400",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http400Rate",
+			"DisplayName": "Http 400 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http400Ratio",
+			"DisplayName": "Http 400 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http401",
+			"DisplayName": "Http 401",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http401Rate",
+			"DisplayName": "Http 401 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http401Ratio",
+			"DisplayName": "Http 401 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http403",
+			"DisplayName": "Http 403",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http403Rate",
+			"DisplayName": "Http 403 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http403Ratio",
+			"DisplayName": "Http 403 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.010,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.030
+		},
+		{
+			"Name": "Http404",
+			"DisplayName": "Http 404",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http404Rate",
+			"DisplayName": "Http 404 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http404Ratio",
+			"DisplayName": "Http 404 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.050,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.100
+		},
+		{
+			"Name": "Http410",
+			"DisplayName": "Http 410",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http410Rate",
+			"DisplayName": "Http 410 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http410Ratio",
+			"DisplayName": "Http 410 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http412",
+			"DisplayName": "Http 412",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http412Rate",
+			"DisplayName": "Http 412 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http412Ratio",
+			"DisplayName": "Http 412 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 0.250,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 0.350
+		},
+		{
+			"Name": "Http415",
+			"DisplayName": "Http 415",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http415Rate",
+			"DisplayName": "Http 415 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http415Ratio",
+			"DisplayName": "Http 415 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http500",
+			"DisplayName": "Http 500",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http500Rate",
+			"DisplayName": "Http 500 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http500Ratio",
+			"DisplayName": "Http 500 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http503",
+			"DisplayName": "Http 503",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "Http503Rate",
+			"DisplayName": "Http 503 Rate",
+			"Unit": "CountPerMinute",
+			"DisplayUnit": "/min",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "Http503Ratio",
+			"DisplayName": "Http 503 Ratio",
+			"Unit": "Ratio",
+			"DisplayUnit": "ratio",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "IncomingBitrate",
+			"DisplayName": "Incoming Bitrate",
+			"Unit": "MegabitsPerSecond",
+			"DisplayUnit": "Mbps",
+			"AggregationType": "Current",
+			
+		},
+		{
+			"Name": "TotalRequestsRate",
+			"DisplayName": "Requests Rate",
+			"Unit": "CountPerSecond",
+			"DisplayUnit": "/sec",
+			"AggregationType": "Current",
+			"GreenBoundaryValue": 200.000,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 225.000
+		},
+		{
+			"Name": "TotalFragmentsDropped",
+			"DisplayName": "Total Fragments Dropped",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			"GreenBoundaryValue": 0.000,
+			"YellowBoundaryValue": 0.0,
+			"RedBoundaryValue": 1.000
+		},
+		{
+			"Name": "TotalFragmentsReceived",
+			"DisplayName": "Total Fragments Received",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "TotalFragmentsUploaded",
+			"DisplayName": "Total Fragments Uploaded",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		},
+		{
+			"Name": "TotalRequests",
+			"DisplayName": "Total Requests",
+			"Unit": "Count",
+			"DisplayUnit": "count",
+			"AggregationType": "Total",
+			
+		}],
+		"reservedUnit": {
+			"capacity": 160
+		},
+		"origin": {
+			"threasholds": {
+				"warning": 50,
+				"error": 70
+			}
+		}
+	}
+}

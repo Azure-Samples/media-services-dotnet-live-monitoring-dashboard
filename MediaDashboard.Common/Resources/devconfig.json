@@ -1,0 +1,79 @@
+{
+	"sys": {
+		"cache": {
+			"identifier": "cache-identifier-goes-here",
+			"cacheName": "cache-name-goes-here",
+			"authorizationToken": "authorization-token-goes-here",
+			"localCacheDir": "%TEMP%\\mediadashboardcache"
+		}
+	},
+	"content": {
+		"dashboardTitle": "dev-title",
+		"contentProviders": [{
+			"id": "00000000-0000-0000-0000-000000000000",
+			"name": "NBC",
+			"mediaServicesSets": [{
+				"descriptiveName": "NBC(High Availability)",
+				"loggingAccounts": [{
+					"accountName": "storageaccount1",
+					"accountKey": "accountKey"
+				},
+				{
+					"accountName": "storageaccount2",
+					"accountKey": "accountKey"
+				}],
+				"dataStorageConnections": [{
+					"accountName": "database1",
+					"azureServer": "server1.database.windows.net",
+					"initialCatalog": "catalog",
+					"dbUserName": "username",
+					"dbPassword": "password"
+				},
+				{
+					"accountName": "database2",
+					"azureServer": "server2.database.windows.net",
+					"initialCatalog": "catalog",
+					"dbUserName": "user",
+					"dbPassword": "password"
+				}],
+				"mediaServicesAccounts": [{
+					"id": "899f70e0-c93e-4e17-b47b-f401aa3d40bb",
+					"accountName": "mediaAccount1",
+					"accountKey": "accountKey",
+					"metaData": {
+						"configType": "configType1 goes here",
+						"location": "West US",
+						"certThumbprint": "F2286CB271EA61902F569A7A70A2D853679FED3F",
+						"aventusDNSBase": ".rtp.channel.mediaservices.windows.net"
+					},
+					"telemetryStorage": {
+						"accountName": "storageaccount1",
+						"accountKey": "accountKey"
+					}
+				},
+				{
+					"id": "be752117-909d-485c-987c-8b8511d7fbc3",
+					"accountName": "mediaAccount2",
+					"accountKey": "accountKey",
+					"metaData": {
+						"configType": "configType2 goes here",
+						"location": "East US",
+						"certThumbprint": "F2286CB271EA61902F569A7A70A2D853679FED3F",
+						"aventusDNSBase": ".rtp.channel.mediaservices.windows.net"
+					}
+				}]
+			}]
+		}]
+	},
+	"parameters": {
+		"reservedUnit": {
+			"capacity": 160
+		},
+		"origin": {
+			"threasholds": {
+				"warning": 50,
+				"error": 70
+			}
+		}
+	}
+}

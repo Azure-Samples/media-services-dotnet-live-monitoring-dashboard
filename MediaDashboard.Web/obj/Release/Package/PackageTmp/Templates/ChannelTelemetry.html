@@ -1,0 +1,162 @@
+﻿<div class="media">
+    <div class="tree media-body">
+        <h2>Channel Telemetry - {{channel.NameShort}}</h2>
+        <!--<span>{{telemetry.Inputs.Receivers}}</span>-->
+        <p>Latest Timestamp: {{telemetry.ChannelClockTime|date:'medium'}}</p>
+        <p>Overall Health: <img ng-src="/Content/Level-{{getHealthLevel(telemetry.Health.HealthLevel)}}.png"/>{{telemetry.Health.HealthLevel}}</p>
+        <ul>
+
+            <!--Inputs-->
+            <li ng-class="'list' + getHealthLevel(telemetry.Inputs.HealthLevel)">
+                <span ng-click="inputsActive = !inputsActive">Inputs</span>
+                <ul ng-show="inputsActive">
+                    <li ng-repeat="item in telemetry.Inputs.Receivers" ng-class="'list' + getHealthLevel(item.Health.HealthLevel)">
+                        <span ng-click="item.active = !item.active">Receiver-{{$index}}</span>
+                        <table ng-show="item.active">
+                            <tr><td>BitRate</td><td>&nbsp;{{item.BitRate}}</td></tr>
+                            <tr><td>LastReceivedTime</td><td>&nbsp;{{item.LastReceivedTime}}</td></tr>
+                            <tr><td>TotalBytesReceived</td><td>&nbsp;{{item.TotalBytesReceived}}</td></tr>
+                            <tr><td>TotalBytesLost</td><td>&nbsp;{{item.TotalBytesLost}}&nbsp;({{getLossPecentage(item.TotalBytesLost, item.TotalBytesReceived)}}%)</td></tr>
+                            <tr><td>RecentBytesLost</td><td>&nbsp;{{item.RecentBytesLost}}</td></tr>
+                            <tr ng-repeat="rule in item.Health.RuleInfo"><td>{{rule.HealthLevel}}</td><td>{{rule.RuleId}} - {{rule.ErrorMessage}}</td></tr>
+                        </table>
+                    </li>
+                </ul>
+            </li>
+
+            <!--Transcoders-->
+            <li ng-class="'list' + getHealthLevel(telemetry.Transcoders.HealthLevel)">
+                <span ng-click="transcodersActive = !transcodersActive">Transcoders</span>
+                <ul ng-show="transcodersActive">
+                    <li>
+                        <!--Video Decoders-->
+                        <span ng-click="videoTranscodersActive = !videoTranscodersActive">Video&nbsp;Decoders</span>
+                        <ul ng-show="videoTranscodersActive">
+                            <li ng-repeat="item in telemetry.Transcoders.VideoDecoders" ng-class="'list' + getHealthLevel(item.Health.HealthLevel)">
+                                <span ng-click="item.active = !item.active">VideoDecoder-{{$index}}</span>
+                                <table ng-show="item.active">
+                                    <tr><td>BitRate</td><td>&nbsp;{{item.BitRate}}</td></tr>
+                                    <tr><td>ExpectedFrameRate</td><td>&nbsp;{{item.ExpectedFrameRate}}</td></tr>
+                                    <tr><td>Width</td><td>&nbsp;{{item.Width}}</td></tr>
+                                    <tr><td>Height</td><td>&nbsp;{{item.Height}}</td></tr>
+                                    <tr><td>FrameRate</td><td>&nbsp;{{item.FrameRate}}</td></tr>
+                                    <tr><td>TotalFramesDecoded</td><td>&nbsp;{{item.TotalFramesDecoded}}</td></tr>
+                                    <tr><td>TotalVideoLostDuration</td><td>&nbsp;{{item.TotalVideoLostDuration}}</td></tr>
+                                    <tr ng-repeat="rule in item.Health.RuleInfo"><td>{{rule.HealthLevel}}</td><td>{{rule.RuleId}} - {{rule.ErrorMessage}}</td></tr>
+                                </table>
+                                <ul ng-show="item.active">
+                                    <li ng-repeat="vidEnc in item.VideoEncoders" ng-class="'list'+getHealthLevel(vidEnc.Health.HealthLevel)">
+                                        <span class="linkTo" ng-click="vidEnc.active = !vidEnc.active">VideoEncoder-{{$index}}</span>
+                                        <table ng-show="vidEnc.active">
+                                            <tr><td>Encoder&nbsp;Name</td><td>&nbsp;{{vidEnc.EncoderName}}</td></tr>
+                                            <tr><td>Bit&nbsp;Rate</td><td>&nbsp;{{vidEnc.BitRate}}</td></tr>
+                                            <tr><td>Expected&nbsp;Bit&nbsp;Rate</td><td>&nbsp;{{vidEnc.ExpectedBitRate}}</td></tr>
+                                            <tr><td>Frame&nbsp;Rate</td><td>&nbsp;{{vidEnc.FrameRate}}</td></tr>
+                                            <tr><td>Expected&nbsp;Frame&nbsp;Rate</td><td>&nbsp;{{vidEnc.ExpectedFrameRate}}</td></tr>
+                                            <tr><td>Task&nbsp;Index</td><td>&nbsp;{{vidEnc.TaskIndex}}</td></tr>
+                                            <tr><td>Task&nbsp;Group&nbsp;ID</td><td>&nbsp;{{vidEnc.TaskGroupId}}</td></tr>
+                                            <tr ng-repeat="rule in vidEnc.Health.RuleInfo"><td>{{rule.HealthLevel}}</td><td>{{rule.RuleId}} - {{rule.ErrorMessage}}</td></tr>
+                                        </table>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <!--Audio Decoders-->
+                        <span ng-click="audioTranscodersActive = !audioTranscodersActive">Audio&nbsp;Decoders</span>
+                        <ul ng-show="audioTranscodersActive">
+                            <li ng-repeat="item in telemetry.Transcoders.AudioDecoders" ng-class="'list'+getHealthLevel(item.Health.HealthLevel)">
+                                <span ng-click="item.active = !item.active">AudioDecoders-{{$index}}</span>
+                                <table ng-show="item.active">
+                                    <tr><td>Codec</td><td>{{item.Codec}}</td></tr>
+                                    <tr><td>BitRate</td><td>{{item.BitRate}}</td></tr>
+                                    <tr><td>TotalLostDuration</td><td>{{item.TotalAudioLostDuration}}</td></tr>
+                                    <tr><td>ExpectedBitRate</td><td>{{item.ExpectedBitRate}}</td></tr>
+                                    <tr><td>SampleRate</td><td>{{item.SampleRate}}</td></tr>
+                                    <tr><td>TotalAccessUnitsDecoded</td><td>{{item.TotalAccessUnitsDecoded}}</td></tr>
+                                    <tr><td>Channels</td><td>{{item.Channels}}</td></tr>
+                                    <tr><td>LastAudioDecodeTime</td><td>{{item.LastAudioDecodeTime}}</td></tr>
+                                    <tr ng-repeat="rule in item.Health.RuleInfo"><td>{{rule.HealthLevel}}</td><td>{{rule.RuleId}} - {{rule.ErrorMessage}}</td></tr>
+                                </table>
+                                <ul ng-show="item.active">
+                                    <li ng-repeat="audEnc in item.AudioEncoders" ng-class="'list'+getHealthLevel(audEnc.Health.HealthLevel)">
+                                        <span class="linkTo" ng-click="audEnc.active = !audEnc.active">AudioEncoder-{{$index}}</span>
+                                        <table ng-show="audEnc.active">
+                                            <tr><td>Encoder&nbsp;Name</td><td>&nbsp;{{audEnc.EncoderName}}</td></tr>
+                                            <tr><td>Bit&nbsp;Rate</td><td>&nbsp;{{audEnc.BitRate}}</td></tr>
+                                            <tr><td>Expected&nbsp;Bit&nbsp;Rate</td><td>&nbsp;{{audEnc.ExpectedBitRate}}</td></tr>
+                                            <tr><td>Total&nbsp;Access&nbsp;Units&nbsp;Encoded</td><td>&nbsp;{{audEnc.TotalAccessUnitsEncoded}}</td></tr>
+                                            <tr><td>Task&nbsp;Index</td><td>&nbsp;{{audEnc.TaskIndex}}</td></tr>
+                                            <tr><td>Task&nbsp;Group&nbsp;ID</td><td>&nbsp;{{audEnc.TaskGroupId}}</td></tr>
+                                            <tr ng-repeat="rule in audEnc.Health.RuleInfo"><td>{{rule.HealthLevel}}</td><td>{{rule.RuleId}} - {{rule.ErrorMessage}}</td></tr>
+                                        </table>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <!--Outputs-->
+            <li ng-class="'list' + getHealthLevel(telemetry.Outputs.HealthLevel)">
+                <span ng-click="outputsActive = !outputsActive">Outputs</span>
+                <ul ng-show="outputsActive">
+                    <li ng-repeat="item in telemetry.Outputs.Packagers" ng-class="'list'+getHealthLevel(item.Health.HealthLevel)">
+                        <span ng-click="item.active = !item.active">Packagers-{{$index}}</span>
+                        <table ng-show="item.active">
+                            <tr><td>AggregateBitRate</td><td>&nbsp;{{item.AggregateBitRate}}</td></tr>
+                            <tr><td>LastFragmentDuration</td><td>&nbsp;{{item.LastFragmentDuration}}</td></tr>
+                            <tr><td>TotalAudioStreams</td><td>&nbsp;{{item.TotalAudioStreams}}</td></tr>
+                            <tr><td>TotalVideoStreams</td><td>&nbsp;{{item.TotalVideoStreams}}</td></tr>
+                            <tr><td>TotalAudioLanguages</td><td>&nbsp;{{item.TotalAudioLanguages}}</td></tr>
+                            <tr ng-repeat="rule in item.Health.RuleInfo"><td  ng-class="'list'+getHealthLevel(rule.HealthLevel)"><!--{{rule.HealthLevel}}--></td><td>{{rule.RuleId}} - {{rule.ErrorMessage}}</td></tr>
+                        </table>
+                        <ul ng-show="item.active">
+                            <li ng-repeat="pub in item.Publishers" ng-class="'list'+getHealthLevel(pub.Health.HealthLevel)">
+                                <span ng-click="pub.active = !pub.active">Publisher-{{$index}}</span>
+                                <table ng-show="pub.active">
+                                    <tr><td>PublishingUrl</td><td>&nbsp;{{pub.PublishingUrl}}</td></tr>
+                                    <tr><td>Protocol</td><td>&nbsp;{{pub.Protocol}}</td></tr>
+                                    <tr><td>PublishingQueueCapacity</td><td>&nbsp;{{pub.PublishingQueueCapacity}}</td></tr>
+                                    <tr><td>PublishingQueueDuration</td><td>&nbsp;{{pub.PublishingQueueDuration}}</td></tr>
+                                    <tr><td>EgressBitRate</td><td>&nbsp;{{pub.PublishingQueueDuration}}</td></tr>
+                                    <tr><td>TotalDisconnectCount</td><td>&nbsp;{{pub.TotalDisconnectCount}}</td></tr>
+                                    <tr><td>TotalConnectFailCount</td><td>&nbsp;{{pub.TotalConnectFailCount}}</td></tr>
+                                    <tr><td>TotalDisconnectCount</td><td>&nbsp;{{pub.TotalDisconnectCount}}</td></tr>
+                                    <tr ng-repeat="rule in pub.Health.RuleInfo"><td>&nbsp;{{rule.HealthLevel}}</td><td>{{rule.RuleId}} - {{rule.ErrorMessage}}</td></tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <!--Ad Markers-->
+            <li>
+                <span class="navSpot" ng-click="admarkersActive = !admarkersActive">Ad Markers</span>
+                <table ng-show="admarkersActive">
+                    <tr><td>LastReceivedTime</td><td>&nbsp;{{telemetry.AdMarkers.LastReceivedTime}}</td></tr>
+                    <tr><td>LastAdMarkerID</td><td>&nbsp;{{telemetry.AdMarkers.LastAdMarkerID}}</td></tr>
+                    <tr><td>LastAdMarkerDuration</td><td>&nbsp;{{telemetry.AdMarkers.LastAdMarkerDuration}}</td></tr>
+                </table>
+            </li>
+
+            <!--Slates-->
+            <li>
+                <span class="navSpot" ng-click="slatesActive = !slatesActive">Slates</span>
+                <table ng-show="slatesActive">
+                    <tr><td>LastInsertedTime</td><td>&nbsp;{{telemetry.Slates.LastInsertedTime}}</td></tr>
+                    <tr><td>LastSlateDuration</td><td>&nbsp;{{telemetry.Slates.LastSlateDuration}}</td></tr>
+                </table>
+            </li>
+        </ul>
+
+        <sub>Last refreshed: {{telemetryLastRefreshTime|date:'medium'}}</sub>
+        <sub>Auto refresh counter: {{refreshViewCount}}</sub>
+        <div class="alert-warning">{{telemetryError}}</div>
+    </div>
+    <div class="media-right">
+        <button class="close" ng-click="$close()"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+</div>

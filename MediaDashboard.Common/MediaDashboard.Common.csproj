@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D53099DB-F0EB-4F2C-B351-7F41149E70EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MediaDashboard.Common</RootNamespace>
+    <AssemblyName>MediaDashboard.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.7.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.TransientFaultHandling.Core, Version=5.1.1209.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\TransientFaultHandling.Core.5.1.1209.1\lib\NET4\Microsoft.Practices.TransientFaultHandling.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.1\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.MediaServices.Client, Version=3.5.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\windowsazure.mediaservices.3.5.3.0\lib\net45\Microsoft.WindowsAzure.MediaServices.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.MediaServices.Client.Common.BlobTransfer, Version=3.5.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\windowsazure.mediaservices.3.5.3.0\lib\net45\Microsoft.WindowsAzure.MediaServices.Client.Common.BlobTransfer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.MediaServices.Client.Common.FileEncryption, Version=3.5.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\windowsazure.mediaservices.3.5.3.0\lib\net45\Microsoft.WindowsAzure.MediaServices.Client.Common.FileEncryption.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.MediaServices.Client.Extensions, Version=3.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\windowsazure.mediaservices.extensions.3.3.0.0\lib\net45\Microsoft.WindowsAzure.MediaServices.Client.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.7.0.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.4.0.2.206221351\lib\net45\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Spatial, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.7.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.cs" />
+    <Compile Include="Config\ConfigReaders\BlobConfigReader.cs" />
+    <Compile Include="Config\ConfigReaders\DevConfigReader.cs" />
+    <Compile Include="Config\ConfigReaders\FileConfigReader.cs" />
+    <Compile Include="Config\CustomConfigOverrideConfig.cs" />
+    <Compile Include="Config\Entities\AzureDataConfig.cs" />
+    <Compile Include="Config\Entities\ContentConfig.cs" />
+    <Compile Include="Config\Entities\ContentProviderConfig.cs" />
+    <Compile Include="Config\ConfigSelector.cs" />
+    <Compile Include="Config\ConfigReaders\IConfigReader.cs" />
+    <Compile Include="Config\CustomConfigType.cs" />
+    <Compile Include="Config\DashboardEnvironment.cs" />
+    <Compile Include="Config\Entities\EncodingPresetConfig.cs" />
+    <Compile Include="Config\Entities\FragmentConfig.cs" />
+    <Compile Include="Config\Entities\HLSRatioConfig.cs" />
+    <Compile Include="Config\Entities\MonitoringIntervalConfig.cs" />
+    <Compile Include="Config\Entities\OriginMappingConfig.cs" />
+    <Compile Include="Config\Entities\OriginParameterConfig.cs" />
+    <Compile Include="Config\Entities\ParametersConfig.cs" />
+    <Compile Include="Config\Entities\ReservedUnitConfig.cs" />
+    <Compile Include="Config\Entities\ThresholdsConfig.cs" />
+    <Compile Include="Config\MasterConfig.cs" />
+    <Compile Include="Config\Entities\CacheConfig.cs" />
+    <Compile Include="Config\Entities\MediaDashboardConfig.cs" />
+    <Compile Include="Config\Entities\MediaServicesAccountConfig.cs" />
+    <Compile Include="Config\Entities\MediaServicesMetaDataConfig.cs" />
+    <Compile Include="Config\Entities\MediaServicesSetConfig.cs" />
+    <Compile Include="Config\ConfigReaders\SampleConfigReader.cs" />
+    <Compile Include="Config\Entities\StorageAccountConfig.cs" />
+    <Compile Include="Config\Entities\SysConfig.cs" />
+    <Compile Include="Data\ArchiveMetric.cs" />
+    <Compile Include="Data\AventusAdMarker.cs" />
+    <Compile Include="Data\AventusAudioCodec.cs" />
+    <Compile Include="Data\AventusAudioDecoder.cs" />
+    <Compile Include="Data\AventusAudioEncoder.cs" />
+    <Compile Include="Data\AventusChannel.cs" />
+    <Compile Include="Data\AventusChannelList.cs" />
+    <Compile Include="Data\AventusHealth.cs" />
+    <Compile Include="Data\AventusHealthRule.cs" />
+    <Compile Include="Data\AventusInput.cs" />
+    <Compile Include="Data\AventusOutput.cs" />
+    <Compile Include="Data\AventusPackage.cs" />
+    <Compile Include="Data\AventusPublisher.cs" />
+    <Compile Include="Data\AventusReceiver.cs" />
+    <Compile Include="Data\AventusSlate.cs" />
+    <Compile Include="Data\AventusTelemetry.cs" />
+    <Compile Include="Data\AventusTranscoder.cs" />
+    <Compile Include="Data\AventusVideoDecoder.cs" />
+    <Compile Include="Data\AventusVideoEncoder.cs" />
+    <Compile Include="Data\EgressMetric.cs" />
+    <Compile Include="Data\HealthStatus.cs" />
+    <Compile Include="Data\IAventusDecoder.cs" />
+    <Compile Include="Data\IngestMetric.cs" />
+    <Compile Include="Data\MediaAsset.cs" />
+    <Compile Include="Data\MediaChannel.cs" />
+    <Compile Include="Data\MediaLocator.cs" />
+    <Compile Include="Data\MediaOrigin.cs" />
+    <Compile Include="Data\MediaProgram.cs" />
+    <Compile Include="Data\MediaService.cs" />
+    <Compile Include="Data\MetricBase.cs" />
+    <Compile Include="Data\Metric.cs" />
+    <Compile Include="Data\MetricType.cs" />
+    <Compile Include="Data\ProgramUrls.cs" />
+    <Compile Include="Helpers\ChannelCreationOperations.cs" />
+    <Compile Include="Helpers\EntityFactory.cs" />
+    <Compile Include="Helpers\Extensions.cs" />
+    <Compile Include="Helpers\MediaServiceExtensions.cs" />
+    <Compile Include="Helpers\LinqHelpers.cs" />
+    <Compile Include="Helpers\AventusHelper.cs" />
+    <Compile Include="Helpers\TelemetryHelper.cs" />
+    <Compile Include="Metrics\EgressTelemetry.cs" />
+    <Compile Include="Metrics\HealthMetricState.cs" />
+    <Compile Include="Metrics\MediaServices\BitrateRatioMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\BytesSentRateMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\BytesSentUtilizationRatioMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\FailedRequestsMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\FailedRequestsRatioMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\FragmentsDroppedRateMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\HealthComputer.cs" />
+    <Compile Include="Metrics\HigherValuesAreBetterNumericThreshold.cs" />
+    <Compile Include="Metrics\MediaServices\HttpStatusCodeBytesSentRateCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\HttpStatusCodeRateMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\HttpStatusCodeRatioMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\IMetricCalculator.cs" />
+    <Compile Include="Metrics\MediaServices\IMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\IngestTelemetry.cs" />
+    <Compile Include="Metrics\ITelemetry.cs" />
+    <Compile Include="Metrics\LowerValuesAreBetterNumericThreshold.cs" />
+    <Compile Include="Metrics\MediaServices\MetricCalculator.cs" />
+    <Compile Include="Metrics\MediaServices\RequestsRatioMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MediaServices\TotalRequestsMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\MetricConstants.cs" />
+    <Compile Include="Metrics\MetricsMapperExtensions.cs" />
+    <Compile Include="Metrics\NumericThreshold.cs" />
+    <Compile Include="Metrics\MediaServices\RequestsRateMetricCalculatorStrategy.cs" />
+    <Compile Include="Metrics\ProgramTelemetry.cs" />
+    <Compile Include="Metrics\TupleList.cs" />
+    <Compile Include="Metrics\TupleListExtensions.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="TelemetryStorageClient\AventusTelemetryEvent.cs" />
+    <Compile Include="TelemetryStorageClient\ChannelFragmentDiscarded.cs" />
+    <Compile Include="TelemetryStorageClient\ChannelHeartbeat.cs" />
+    <Compile Include="TelemetryStorageClient\ChannelMetrics.cs" />
+    <Compile Include="TelemetryStorageClient\EnumerableExtensions.cs" />
+    <Compile Include="TelemetryStorageClient\StreamingEndpointMetrics.cs" />
+    <Compile Include="TelemetryStorageClient\StreamingEndpointRequestLog.cs" />
+    <Compile Include="TelemetryStorageClient\TelemetryEvent.cs" />
+    <Compile Include="TelemetryStorageClient\TelemetryStorage.cs" />
+    <Compile Include="Validate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

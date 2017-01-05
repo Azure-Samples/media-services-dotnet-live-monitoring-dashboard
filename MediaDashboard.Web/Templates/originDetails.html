@@ -1,0 +1,86 @@
+﻿<div class="media">
+    <div class="media-body">
+        <h2>Origin Details</h2>
+        <ul class="nav nav-tabs">
+            <li role="presentation" ng-click="selectTab(1)" ><a href="">General</a></li>
+            <li role="presentation" ng-click="selectTab(2)" ><a href="">Security</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" ng-class="activeTab===1? 'active': ''">
+                <table class="table table-borderless">
+                    <colgroup>
+                        <col class="col-md-3" />
+                        <col class="col-md-9" />
+                    </colgroup>
+                    <tr>
+                        <td><strong>Service Id:</strong></td>
+                        <td>{{origin.Id}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Name:</strong></td>
+                        <td>{{origin.Name}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Host Name:</strong></td>
+                        <td>{{origin.HostName}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Description:</strong></td>
+                        <td>{{origin.Description}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Location:</strong></td>
+                        <td>{{account.Datacenter}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>State:</strong></td>
+                        <td>{{origin.State}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reserved Units</strong></td>
+                        <td>{{origin.ReservedUnits}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Created:</strong></td>
+                        <td>{{origin.Created | date:'medium'}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Last&nbsp;Modified:</strong></td>
+                        <td>{{origin.LastModified | date:'medium'}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cache&nbsp;Max&nbsp;Age</strong></td>
+                        <td>{{origin.MaxAge}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div ng-class="activeTab===2 ? 'active' : ''" class="tab-pane">
+                <h4>IP&nbsp;Allow&nbsp;List:</h4>
+                <textarea readonly ng-model="origin.IPAllowList" rows="4"></textarea>
+                <h4>G20 Authentication Keys:</h4>
+                <table class="table table-bordered">
+                    <colgroup>
+                        <col class="col-md-3" />
+                        <col class="col-md-6" />
+                        <col class="col-md-3" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>Identifier</th>
+                            <th>Base64&nbsp;Key</th>
+                            <th>Expiration</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="key in origin.AuthenticationKeys">
+                        <td>{{key.Identifier}}</td>
+                        <td>{{key.Base64Key}}</td>
+                        <td>{{key.Expiration | date:medium}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="media-right">
+        <button type="button" class="close" aria-label="Close" ng-click="$close()"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+</div>

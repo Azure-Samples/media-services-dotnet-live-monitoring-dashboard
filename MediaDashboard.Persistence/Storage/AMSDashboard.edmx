@@ -1,0 +1,947 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AMSDashboardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Alert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="AlertID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlertTypeID" Type="int" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="OriginID" Type="nvarchar" MaxLength="60" />
+          <Property Name="ChannelID" Type="nvarchar" MaxLength="60" />
+          <Property Name="ProgramID" Type="nvarchar" MaxLength="60" />
+          <Property Name="TrackID" Type="nvarchar" MaxLength="75" />
+          <Property Name="StreamID" Type="nvarchar" MaxLength="75" />
+          <Property Name="MetricType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MetricName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="AlertValue" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="ErrorLevel" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AlertDate" Type="date" Nullable="false" />
+          <Property Name="AlertTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AlertType">
+          <Key>
+            <PropertyRef Name="AlertTypeID" />
+          </Key>
+          <Property Name="AlertTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlertTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Channel">
+          <Key>
+            <PropertyRef Name="ChannelId" />
+          </Key>
+          <Property Name="ChannelId" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="OriginId" Type="nvarchar" MaxLength="60" />
+          <Property Name="ChannelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MediaServicesAccount">
+          <Key>
+            <PropertyRef Name="AccountId" />
+          </Key>
+          <Property Name="AccountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubscriptionName" Type="nvarchar" MaxLength="75" />
+          <Property Name="DataCenter" Type="nvarchar" MaxLength="75" />
+          <Property Name="Location" Type="nvarchar" MaxLength="75" />
+          <Property Name="AccountCreated" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Origin">
+          <Key>
+            <PropertyRef Name="OriginId" />
+          </Key>
+          <Property Name="OriginId" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="OriginName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="HealthIncluded" Type="bit" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="ProgramID" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ChannelID" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ProgramName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Created" Type="datetime2" Precision="7" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AMSDashboard.dbo.ArchiveAlert' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ArchiveAlert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AlertTypeName" />
+            <PropertyRef Name="ChannelID" />
+            <PropertyRef Name="ProgramID" />
+            
+            <PropertyRef Name="AlertDate" />
+            <PropertyRef Name="AlertTime" />
+            <PropertyRef Name="MetricType" />
+            <PropertyRef Name="MetricName" />
+            <PropertyRef Name="ErrorLevel" />
+            <PropertyRef Name="Details" />
+          </Key>
+          <Property Name="AlertID" Type="int" Nullable="false" />
+          <Property Name="SubscriptionName" Type="nvarchar" MaxLength="75" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlertTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ChannelID" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ProgramID" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ProgramName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AlertDate" Type="date" Nullable="false" />
+          <Property Name="AlertTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="TrackID" Type="nvarchar" MaxLength="75" />
+          <Property Name="StreamID" Type="nvarchar" MaxLength="75" />
+          <Property Name="MetricType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MetricName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="ErrorLevel" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AlertValue" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AMSDashboard.dbo.ChannelAlert' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ChannelAlert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AlertTypeName" />
+            <PropertyRef Name="AccountId" />
+            <PropertyRef Name="ChannelName" />
+            <PropertyRef Name="OriginName" />
+            <PropertyRef Name="AlertDate" />
+            <PropertyRef Name="AlertTime" />
+            <PropertyRef Name="MetricType" />
+            <PropertyRef Name="MetricName" />
+            <PropertyRef Name="ErrorLevel" />
+            <PropertyRef Name="Details" />
+          </Key>
+          <Property Name="AlertID" Type="int" Nullable="false" />
+          <Property Name="SubscriptionName" Type="nvarchar" MaxLength="75" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataCenter" Type="nvarchar" MaxLength="75" />
+          <Property Name="AlertTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="ChannelId" Type="nvarchar" MaxLength="60" />
+          <Property Name="ChannelName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OriginID" Type="nvarchar" MaxLength="60" />
+          <Property Name="OriginName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AlertDate" Type="date" Nullable="false" />
+          <Property Name="AlertTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="TrackID" Type="nvarchar" MaxLength="75" />
+          <Property Name="StreamID" Type="nvarchar" MaxLength="75" />
+          <Property Name="MetricType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MetricName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="ErrorLevel" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AlertValue" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AMSDashboard.dbo.GlobalAlert' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GlobalAlert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AlertTypeName" />
+            <PropertyRef Name="AlertDate" />
+            <PropertyRef Name="AlertTime" />
+            <PropertyRef Name="MetricType" />
+            <PropertyRef Name="MetricName" />
+            <PropertyRef Name="ErrorLevel" />
+            <PropertyRef Name="Details" />
+          </Key>
+          <Property Name="AlertID" Type="int" Nullable="false" />
+          <Property Name="SubscriptionName" Type="nvarchar" MaxLength="75" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlertTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlertDate" Type="date" Nullable="false" />
+          <Property Name="AlertTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="MetricType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MetricName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="ErrorLevel" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AlertValue" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'AMSDashboard.dbo.OriginAlert' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="OriginAlert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AlertTypeName" />
+            <PropertyRef Name="AccountId" />
+            <PropertyRef Name="OriginName" />
+            <PropertyRef Name="AlertDate" />
+            <PropertyRef Name="AlertTime" />
+            <PropertyRef Name="MetricType" />
+            <PropertyRef Name="MetricName" />
+            <PropertyRef Name="ErrorLevel" />
+            <PropertyRef Name="Details" />
+          </Key>
+          <Property Name="AlertID" Type="int" Nullable="false" />
+          <Property Name="SubscriptionName" Type="nvarchar" MaxLength="75" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AlertTypeName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="OriginID" Type="nvarchar" MaxLength="60" />
+          <Property Name="OriginName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AlertDate" Type="date" Nullable="false" />
+          <Property Name="AlertTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="MetricType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MetricName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="ErrorLevel" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="AlertValue" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Details" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Alert_Account">
+          <End Role="MediaServicesAccount" Type="Self.MediaServicesAccount" Multiplicity="1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaServicesAccount">
+              <PropertyRef Name="AccountId" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alert_AlertType">
+          <End Role="AlertType" Type="Self.AlertType" Multiplicity="1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlertType">
+              <PropertyRef Name="AlertTypeID" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="AlertTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alert_Channel">
+          <End Role="Channel" Type="Self.Channel" Multiplicity="0..1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Channel">
+              <PropertyRef Name="ChannelId" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="ChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alert_Origin">
+          <End Role="Origin" Type="Self.Origin" Multiplicity="0..1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Origin">
+              <PropertyRef Name="OriginId" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="OriginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alert_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="ProgramID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Channel_Account">
+          <End Role="MediaServicesAccount" Type="Self.MediaServicesAccount" Multiplicity="1" />
+          <End Role="Channel" Type="Self.Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaServicesAccount">
+              <PropertyRef Name="AccountId" />
+            </Principal>
+            <Dependent Role="Channel">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Origin_Account">
+          <End Role="MediaServicesAccount" Type="Self.MediaServicesAccount" Multiplicity="1" />
+          <End Role="Origin" Type="Self.Origin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaServicesAccount">
+              <PropertyRef Name="AccountId" />
+            </Principal>
+            <Dependent Role="Origin">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Program_Channel">
+          <End Role="Channel" Type="Self.Channel" Multiplicity="1" />
+          <End Role="Program" Type="Self.Program" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Channel">
+              <PropertyRef Name="ChannelId" />
+            </Principal>
+            <Dependent Role="Program">
+              <PropertyRef Name="ChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AMSDashboardModelStoreContainer">
+          <EntitySet Name="Alert" EntityType="Self.Alert" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AlertType" EntityType="Self.AlertType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Channel" EntityType="Self.Channel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaServicesAccount" EntityType="Self.MediaServicesAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Origin" EntityType="Self.Origin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArchiveAlert" EntityType="Self.ArchiveAlert" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ArchiveAlert].[AlertID] AS [AlertID], 
+[ArchiveAlert].[SubscriptionName] AS [SubscriptionName], 
+[ArchiveAlert].[AccountName] AS [AccountName], 
+[ArchiveAlert].[AlertTypeName] AS [AlertTypeName], 
+[ArchiveAlert].[ChannelID] AS [ChannelID], 
+[ArchiveAlert].[ProgramID] AS [ProgramID], 
+[ArchiveAlert].[ProgramName] AS [ProgramName], 
+[ArchiveAlert].[AlertDate] AS [AlertDate], 
+[ArchiveAlert].[AlertTime] AS [AlertTime], 
+[ArchiveAlert].[TrackID] AS [TrackID], 
+[ArchiveAlert].[StreamID] AS [StreamID], 
+[ArchiveAlert].[MetricType] AS [MetricType], 
+[ArchiveAlert].[MetricName] AS [MetricName], 
+[ArchiveAlert].[ErrorLevel] AS [ErrorLevel], 
+[ArchiveAlert].[AlertValue] AS [AlertValue], 
+[ArchiveAlert].[Details] AS [Details]
+FROM [dbo].[ArchiveAlert] AS [ArchiveAlert]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ChannelAlert" EntityType="Self.ChannelAlert" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[ChannelAlert].[AlertID] AS [AlertID], 
+[ChannelAlert].[SubscriptionName] AS [SubscriptionName], 
+[ChannelAlert].[AccountName] AS [AccountName], 
+[ChannelAlert].[DataCenter] AS [DataCenter], 
+[ChannelAlert].[AlertTypeName] AS [AlertTypeName], 
+[ChannelAlert].[AccountId] AS [AccountId], 
+[ChannelAlert].[ChannelId] AS [ChannelId], 
+[ChannelAlert].[ChannelName] AS [ChannelName], 
+[ChannelAlert].[OriginID] AS [OriginID], 
+[ChannelAlert].[OriginName] AS [OriginName], 
+[ChannelAlert].[AlertDate] AS [AlertDate], 
+[ChannelAlert].[AlertTime] AS [AlertTime], 
+[ChannelAlert].[TrackID] AS [TrackID], 
+[ChannelAlert].[StreamID] AS [StreamID], 
+[ChannelAlert].[MetricType] AS [MetricType], 
+[ChannelAlert].[MetricName] AS [MetricName], 
+[ChannelAlert].[ErrorLevel] AS [ErrorLevel], 
+[ChannelAlert].[AlertValue] AS [AlertValue], 
+[ChannelAlert].[Details] AS [Details]
+FROM [dbo].[ChannelAlert] AS [ChannelAlert]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GlobalAlert" EntityType="Self.GlobalAlert" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[GlobalAlert].[AlertID] AS [AlertID], 
+[GlobalAlert].[SubscriptionName] AS [SubscriptionName], 
+[GlobalAlert].[AccountName] AS [AccountName], 
+[GlobalAlert].[AlertTypeName] AS [AlertTypeName], 
+[GlobalAlert].[AlertDate] AS [AlertDate], 
+[GlobalAlert].[AlertTime] AS [AlertTime], 
+[GlobalAlert].[MetricType] AS [MetricType], 
+[GlobalAlert].[MetricName] AS [MetricName], 
+[GlobalAlert].[ErrorLevel] AS [ErrorLevel], 
+[GlobalAlert].[AlertValue] AS [AlertValue], 
+[GlobalAlert].[Details] AS [Details]
+FROM [dbo].[GlobalAlert] AS [GlobalAlert]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="OriginAlert" EntityType="Self.OriginAlert" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[OriginAlert].[AlertID] AS [AlertID], 
+[OriginAlert].[SubscriptionName] AS [SubscriptionName], 
+[OriginAlert].[AccountName] AS [AccountName], 
+[OriginAlert].[AlertTypeName] AS [AlertTypeName], 
+[OriginAlert].[AccountId] AS [AccountId], 
+[OriginAlert].[OriginID] AS [OriginID], 
+[OriginAlert].[OriginName] AS [OriginName], 
+[OriginAlert].[AlertDate] AS [AlertDate], 
+[OriginAlert].[AlertTime] AS [AlertTime], 
+[OriginAlert].[MetricType] AS [MetricType], 
+[OriginAlert].[MetricName] AS [MetricName], 
+[OriginAlert].[ErrorLevel] AS [ErrorLevel], 
+[OriginAlert].[AlertValue] AS [AlertValue], 
+[OriginAlert].[Details] AS [Details]
+FROM [dbo].[OriginAlert] AS [OriginAlert]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Alert_Account" Association="Self.FK_Alert_Account">
+            <End Role="MediaServicesAccount" EntitySet="MediaServicesAccount" />
+            <End Role="Alert" EntitySet="Alert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alert_AlertType" Association="Self.FK_Alert_AlertType">
+            <End Role="AlertType" EntitySet="AlertType" />
+            <End Role="Alert" EntitySet="Alert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alert_Channel" Association="Self.FK_Alert_Channel">
+            <End Role="Channel" EntitySet="Channel" />
+            <End Role="Alert" EntitySet="Alert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alert_Origin" Association="Self.FK_Alert_Origin">
+            <End Role="Origin" EntitySet="Origin" />
+            <End Role="Alert" EntitySet="Alert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alert_Program" Association="Self.FK_Alert_Program">
+            <End Role="Program" EntitySet="Program" />
+            <End Role="Alert" EntitySet="Alert" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Channel_Account" Association="Self.FK_Channel_Account">
+            <End Role="MediaServicesAccount" EntitySet="MediaServicesAccount" />
+            <End Role="Channel" EntitySet="Channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Origin_Account" Association="Self.FK_Origin_Account">
+            <End Role="MediaServicesAccount" EntitySet="MediaServicesAccount" />
+            <End Role="Origin" EntitySet="Origin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Program_Channel" Association="Self.FK_Program_Channel">
+            <End Role="Channel" EntitySet="Channel" />
+            <End Role="Program" EntitySet="Program" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AMSDashboardModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Alert">
+          <Key>
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="AlertID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertTypeID" Type="Int32" Nullable="false" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="OriginID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ChannelID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ProgramID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="TrackID" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="StreamID" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="MetricType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetricName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertValue" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="ErrorLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AlertDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AlertTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="MediaServicesAccount" Relationship="Self.FK_Alert_Account" FromRole="Alert" ToRole="MediaServicesAccount" />
+          <NavigationProperty Name="AlertType" Relationship="Self.FK_Alert_AlertType" FromRole="Alert" ToRole="AlertType" />
+          <NavigationProperty Name="Channel" Relationship="Self.FK_Alert_Channel" FromRole="Alert" ToRole="Channel" />
+          <NavigationProperty Name="Origin" Relationship="Self.FK_Alert_Origin" FromRole="Alert" ToRole="Origin" />
+          <NavigationProperty Name="Program" Relationship="Self.FK_Alert_Program" FromRole="Alert" ToRole="Program" />
+        </EntityType>
+        <EntityType Name="AlertType">
+          <Key>
+            <PropertyRef Name="AlertTypeID" />
+          </Key>
+          <Property Name="AlertTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlertTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Alerts" Relationship="Self.FK_Alert_AlertType" FromRole="AlertType" ToRole="Alert" />
+        </EntityType>
+        <EntityType Name="Channel">
+          <Key>
+            <PropertyRef Name="ChannelId" />
+          </Key>
+          <Property Name="ChannelId" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="ChannelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Alerts" Relationship="Self.FK_Alert_Channel" FromRole="Channel" ToRole="Alert" />
+          <NavigationProperty Name="MediaServicesAccount" Relationship="Self.FK_Channel_Account" FromRole="Channel" ToRole="MediaServicesAccount" />
+          <NavigationProperty Name="Programs" Relationship="Self.FK_Program_Channel" FromRole="Channel" ToRole="Program" />
+          <Property Name="OriginId" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MediaServicesAccount">
+          <Key>
+            <PropertyRef Name="AccountId" />
+          </Key>
+          <Property Name="AccountId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubscriptionName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="AccountCreated" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Alerts" Relationship="Self.FK_Alert_Account" FromRole="MediaServicesAccount" ToRole="Alert" />
+          <NavigationProperty Name="Channels" Relationship="Self.FK_Channel_Account" FromRole="MediaServicesAccount" ToRole="Channel" />
+          <NavigationProperty Name="Origins" Relationship="Self.FK_Origin_Account" FromRole="MediaServicesAccount" ToRole="Origin" />
+          <Property Name="DataCenter" Type="String" Nullable="true" MaxLength="75" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Origin">
+          <Key>
+            <PropertyRef Name="OriginId" />
+          </Key>
+          <Property Name="OriginId" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="OriginName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="HealthIncluded" Type="Boolean" />
+          <NavigationProperty Name="Alerts" Relationship="Self.FK_Alert_Origin" FromRole="Origin" ToRole="Alert" />
+          <NavigationProperty Name="MediaServicesAccount" Relationship="Self.FK_Origin_Account" FromRole="Origin" ToRole="MediaServicesAccount" />
+        </EntityType>
+        <EntityType Name="Program">
+          <Key>
+            <PropertyRef Name="ProgramID" />
+          </Key>
+          <Property Name="ProgramID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ChannelID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProgramName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Precision="7" />
+          <NavigationProperty Name="Alerts" Relationship="Self.FK_Alert_Program" FromRole="Program" ToRole="Alert" />
+          <NavigationProperty Name="Channel" Relationship="Self.FK_Program_Channel" FromRole="Program" ToRole="Channel" />
+        </EntityType>
+        <EntityType Name="ArchiveAlert">
+          <Key>
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AlertTypeName" />
+            <PropertyRef Name="ChannelID" />
+            <PropertyRef Name="ProgramID" />
+            <PropertyRef Name="AlertDate" />
+            <PropertyRef Name="AlertTime" />
+            <PropertyRef Name="MetricType" />
+            <PropertyRef Name="MetricName" />
+            <PropertyRef Name="ErrorLevel" />
+            <PropertyRef Name="Details" />
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="SubscriptionName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ChannelID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProgramID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProgramName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AlertTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="TrackID" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="StreamID" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="MetricType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetricName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ErrorLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AlertValue" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ChannelAlert">
+          <Key>
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AlertTypeName" />
+            <PropertyRef Name="AccountId" />
+            <PropertyRef Name="ChannelName" />
+            <PropertyRef Name="AlertDate" />
+            <PropertyRef Name="AlertTime" />
+            <PropertyRef Name="MetricType" />
+            <PropertyRef Name="MetricName" />
+            <PropertyRef Name="ErrorLevel" />
+            <PropertyRef Name="Details" />
+            <PropertyRef Name="AlertID" />
+            <PropertyRef Name="OriginName" />
+          </Key>
+          <Property Name="SubscriptionName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="ChannelName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DataCenter" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="AlertDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AlertTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="TrackID" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="StreamID" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="MetricType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetricName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ErrorLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AlertValue" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertID" Type="Int32" Nullable="false" />
+          <Property Name="ChannelId" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="OriginID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="OriginName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GlobalAlert">
+          <Key>
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AlertTypeName" />
+            <PropertyRef Name="AlertDate" />
+            <PropertyRef Name="AlertTime" />
+            <PropertyRef Name="MetricType" />
+            <PropertyRef Name="MetricName" />
+            <PropertyRef Name="ErrorLevel" />
+            <PropertyRef Name="Details" />
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="SubscriptionName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AlertDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AlertTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="MetricType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetricName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ErrorLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AlertValue" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OriginAlert">
+          <Key>
+            <PropertyRef Name="AccountName" />
+            <PropertyRef Name="AlertTypeName" />
+            <PropertyRef Name="AccountId" />
+            <PropertyRef Name="OriginName" />
+            <PropertyRef Name="AlertDate" />
+            <PropertyRef Name="AlertTime" />
+            <PropertyRef Name="MetricType" />
+            <PropertyRef Name="MetricName" />
+            <PropertyRef Name="ErrorLevel" />
+            <PropertyRef Name="Details" />
+            <PropertyRef Name="AlertID" />
+          </Key>
+          <Property Name="SubscriptionName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertTypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AccountId" Type="Int32" Nullable="false" />
+          <Property Name="OriginName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="AlertTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="MetricType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MetricName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ErrorLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AlertValue" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlertID" Type="Int32" Nullable="false" />
+          <Property Name="OriginID" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_Alert_Account">
+          <End Role="MediaServicesAccount" Type="Self.MediaServicesAccount" Multiplicity="1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaServicesAccount">
+              <PropertyRef Name="AccountId" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alert_AlertType">
+          <End Role="AlertType" Type="Self.AlertType" Multiplicity="1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AlertType">
+              <PropertyRef Name="AlertTypeID" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="AlertTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alert_Channel">
+          <End Role="Channel" Type="Self.Channel" Multiplicity="0..1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Channel">
+              <PropertyRef Name="ChannelId" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="ChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alert_Origin">
+          <End Role="Origin" Type="Self.Origin" Multiplicity="0..1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Origin">
+              <PropertyRef Name="OriginId" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="OriginID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Alert_Program">
+          <End Role="Program" Type="Self.Program" Multiplicity="0..1" />
+          <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Program">
+              <PropertyRef Name="ProgramID" />
+            </Principal>
+            <Dependent Role="Alert">
+              <PropertyRef Name="ProgramID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Channel_Account">
+          <End Role="MediaServicesAccount" Type="Self.MediaServicesAccount" Multiplicity="1" />
+          <End Role="Channel" Type="Self.Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaServicesAccount">
+              <PropertyRef Name="AccountId" />
+            </Principal>
+            <Dependent Role="Channel">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Program_Channel">
+          <End Role="Channel" Type="Self.Channel" Multiplicity="1" />
+          <End Role="Program" Type="Self.Program" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Channel">
+              <PropertyRef Name="ChannelId" />
+            </Principal>
+            <Dependent Role="Program">
+              <PropertyRef Name="ChannelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Origin_Account">
+          <End Role="MediaServicesAccount" Type="Self.MediaServicesAccount" Multiplicity="1" />
+          <End Role="Origin" Type="Self.Origin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaServicesAccount">
+              <PropertyRef Name="AccountId" />
+            </Principal>
+            <Dependent Role="Origin">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AMSDashboardEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Alerts" EntityType="Self.Alert" />
+          <EntitySet Name="AlertTypes" EntityType="Self.AlertType" />
+          <EntitySet Name="Channels" EntityType="Self.Channel" />
+          <EntitySet Name="MediaServicesAccounts" EntityType="Self.MediaServicesAccount" />
+          <EntitySet Name="Origins" EntityType="Self.Origin" />
+          <EntitySet Name="Programs" EntityType="Self.Program" />
+          <EntitySet Name="ArchiveAlerts" EntityType="Self.ArchiveAlert" />
+          <EntitySet Name="ChannelAlerts" EntityType="Self.ChannelAlert" />
+          <EntitySet Name="GlobalAlerts" EntityType="Self.GlobalAlert" />
+          <EntitySet Name="OriginAlerts" EntityType="Self.OriginAlert" />
+          <AssociationSet Name="FK_Alert_Account" Association="Self.FK_Alert_Account">
+            <End Role="MediaServicesAccount" EntitySet="MediaServicesAccounts" />
+            <End Role="Alert" EntitySet="Alerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alert_AlertType" Association="Self.FK_Alert_AlertType">
+            <End Role="AlertType" EntitySet="AlertTypes" />
+            <End Role="Alert" EntitySet="Alerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alert_Channel" Association="Self.FK_Alert_Channel">
+            <End Role="Channel" EntitySet="Channels" />
+            <End Role="Alert" EntitySet="Alerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alert_Origin" Association="Self.FK_Alert_Origin">
+            <End Role="Origin" EntitySet="Origins" />
+            <End Role="Alert" EntitySet="Alerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Alert_Program" Association="Self.FK_Alert_Program">
+            <End Role="Program" EntitySet="Programs" />
+            <End Role="Alert" EntitySet="Alerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Channel_Account" Association="Self.FK_Channel_Account">
+            <End Role="MediaServicesAccount" EntitySet="MediaServicesAccounts" />
+            <End Role="Channel" EntitySet="Channels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Program_Channel" Association="Self.FK_Program_Channel">
+            <End Role="Channel" EntitySet="Channels" />
+            <End Role="Program" EntitySet="Programs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Origin_Account" Association="Self.FK_Origin_Account">
+            <End Role="MediaServicesAccount" EntitySet="MediaServicesAccounts" />
+            <End Role="Origin" EntitySet="Origins" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AMSDashboardModelStoreContainer" CdmEntityContainer="AMSDashboardEntities1">
+          <EntitySetMapping Name="Alerts">
+            <EntityTypeMapping TypeName="AMSDashboardModel.Alert">
+              <MappingFragment StoreEntitySet="Alert">
+                <ScalarProperty Name="AlertID" ColumnName="AlertID" />
+                <ScalarProperty Name="AlertTypeID" ColumnName="AlertTypeID" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="OriginID" ColumnName="OriginID" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+                <ScalarProperty Name="StreamID" ColumnName="StreamID" />
+                <ScalarProperty Name="MetricType" ColumnName="MetricType" />
+                <ScalarProperty Name="MetricName" ColumnName="MetricName" />
+                <ScalarProperty Name="AlertValue" ColumnName="AlertValue" />
+                <ScalarProperty Name="ErrorLevel" ColumnName="ErrorLevel" />
+                <ScalarProperty Name="AlertDate" ColumnName="AlertDate" />
+                <ScalarProperty Name="AlertTime" ColumnName="AlertTime" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AlertTypes">
+            <EntityTypeMapping TypeName="AMSDashboardModel.AlertType">
+              <MappingFragment StoreEntitySet="AlertType">
+                <ScalarProperty Name="AlertTypeID" ColumnName="AlertTypeID" />
+                <ScalarProperty Name="AlertTypeName" ColumnName="AlertTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Channels">
+            <EntityTypeMapping TypeName="AMSDashboardModel.Channel">
+              <MappingFragment StoreEntitySet="Channel">
+                <ScalarProperty Name="OriginId" ColumnName="OriginId" />
+                <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaServicesAccounts">
+            <EntityTypeMapping TypeName="AMSDashboardModel.MediaServicesAccount">
+              <MappingFragment StoreEntitySet="MediaServicesAccount">
+                <ScalarProperty Name="DataCenter" ColumnName="DataCenter" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="SubscriptionName" ColumnName="SubscriptionName" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="AccountCreated" ColumnName="AccountCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Origins">
+            <EntityTypeMapping TypeName="AMSDashboardModel.Origin">
+              <MappingFragment StoreEntitySet="Origin">
+                <ScalarProperty Name="OriginId" ColumnName="OriginId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="OriginName" ColumnName="OriginName" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="HealthIncluded" ColumnName="HealthIncluded" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Programs">
+            <EntityTypeMapping TypeName="AMSDashboardModel.Program">
+              <MappingFragment StoreEntitySet="Program">
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArchiveAlerts">
+            <EntityTypeMapping TypeName="AMSDashboardModel.ArchiveAlert">
+              <MappingFragment StoreEntitySet="ArchiveAlert">
+                <ScalarProperty Name="AlertID" ColumnName="AlertID" />
+                <ScalarProperty Name="SubscriptionName" ColumnName="SubscriptionName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AlertTypeName" ColumnName="AlertTypeName" />
+                <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+                <ScalarProperty Name="ProgramID" ColumnName="ProgramID" />
+                <ScalarProperty Name="ProgramName" ColumnName="ProgramName" />
+                <ScalarProperty Name="AlertDate" ColumnName="AlertDate" />
+                <ScalarProperty Name="AlertTime" ColumnName="AlertTime" />
+                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+                <ScalarProperty Name="StreamID" ColumnName="StreamID" />
+                <ScalarProperty Name="MetricType" ColumnName="MetricType" />
+                <ScalarProperty Name="MetricName" ColumnName="MetricName" />
+                <ScalarProperty Name="ErrorLevel" ColumnName="ErrorLevel" />
+                <ScalarProperty Name="AlertValue" ColumnName="AlertValue" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChannelAlerts">
+            <EntityTypeMapping TypeName="AMSDashboardModel.ChannelAlert">
+              <MappingFragment StoreEntitySet="ChannelAlert">
+                <ScalarProperty Name="OriginName" ColumnName="OriginName" />
+                <ScalarProperty Name="DataCenter" ColumnName="DataCenter" />
+                <ScalarProperty Name="OriginID" ColumnName="OriginID" />
+                <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />
+                <ScalarProperty Name="AlertID" ColumnName="AlertID" />
+                <ScalarProperty Name="SubscriptionName" ColumnName="SubscriptionName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AlertTypeName" ColumnName="AlertTypeName" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="ChannelName" ColumnName="ChannelName" />
+                <ScalarProperty Name="AlertDate" ColumnName="AlertDate" />
+                <ScalarProperty Name="AlertTime" ColumnName="AlertTime" />
+                <ScalarProperty Name="TrackID" ColumnName="TrackID" />
+                <ScalarProperty Name="StreamID" ColumnName="StreamID" />
+                <ScalarProperty Name="MetricType" ColumnName="MetricType" />
+                <ScalarProperty Name="MetricName" ColumnName="MetricName" />
+                <ScalarProperty Name="ErrorLevel" ColumnName="ErrorLevel" />
+                <ScalarProperty Name="AlertValue" ColumnName="AlertValue" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GlobalAlerts">
+            <EntityTypeMapping TypeName="AMSDashboardModel.GlobalAlert">
+              <MappingFragment StoreEntitySet="GlobalAlert">
+                <ScalarProperty Name="AlertID" ColumnName="AlertID" />
+                <ScalarProperty Name="SubscriptionName" ColumnName="SubscriptionName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AlertTypeName" ColumnName="AlertTypeName" />
+                <ScalarProperty Name="AlertDate" ColumnName="AlertDate" />
+                <ScalarProperty Name="AlertTime" ColumnName="AlertTime" />
+                <ScalarProperty Name="MetricType" ColumnName="MetricType" />
+                <ScalarProperty Name="MetricName" ColumnName="MetricName" />
+                <ScalarProperty Name="ErrorLevel" ColumnName="ErrorLevel" />
+                <ScalarProperty Name="AlertValue" ColumnName="AlertValue" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OriginAlerts">
+            <EntityTypeMapping TypeName="AMSDashboardModel.OriginAlert">
+              <MappingFragment StoreEntitySet="OriginAlert">
+                <ScalarProperty Name="OriginID" ColumnName="OriginID" />
+                <ScalarProperty Name="AlertID" ColumnName="AlertID" />
+                <ScalarProperty Name="SubscriptionName" ColumnName="SubscriptionName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AlertTypeName" ColumnName="AlertTypeName" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="OriginName" ColumnName="OriginName" />
+                <ScalarProperty Name="AlertDate" ColumnName="AlertDate" />
+                <ScalarProperty Name="AlertTime" ColumnName="AlertTime" />
+                <ScalarProperty Name="MetricType" ColumnName="MetricType" />
+                <ScalarProperty Name="MetricName" ColumnName="MetricName" />
+                <ScalarProperty Name="ErrorLevel" ColumnName="ErrorLevel" />
+                <ScalarProperty Name="AlertValue" ColumnName="AlertValue" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Default" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

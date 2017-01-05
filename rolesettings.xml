@@ -1,0 +1,22 @@
+  "appRoles": [
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "description": "Dashboard Administrator",
+      "displayName": "Administrator",
+      "id": "a82ec7e0-d454-4e77-9037-31463293538c",
+      "isEnabled": true,
+      "value": "Administrator"
+    },
+    {
+      "allowedMemberTypes": [
+        "User"
+      ],
+      "description": "Dashboard operator",
+      "displayName": "Operator",
+      "id": "6d1e140e-5ec9-4dea-9f18-fc626af6e19e",
+      "isEnabled": true,
+      "value": "Operator"
+    }
+  ],

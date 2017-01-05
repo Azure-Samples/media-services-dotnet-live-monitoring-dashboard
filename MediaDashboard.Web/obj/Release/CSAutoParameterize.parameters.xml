@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-MediaDashboard.Web-bbd562db-1d3b-43b1-96e6-c20086adf61b.mdf;Initial Catalog=aspnet-MediaDashboard.Web-bbd562db-1d3b-43b1-96e6-c20086adf61b;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwgeo\\Desktop\\Files\\Repositories\\Monitoring\ Dashboard\\MediaDashboard\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="MediaDashboard.Persistence.Storage.AMSDashboardEntities1-Web.config Connection String" description="MediaDashboard.Persistence.Storage.AMSDashboardEntities1 Connection String used in web.config by the application to access the database." defaultValue="MediaDashboard.Persistence.Storage.AMSDashboardEntities1_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\dwgeo\\Desktop\\Files\\Repositories\\Monitoring\ Dashboard\\MediaDashboard\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='MediaDashboard.Persistence.Storage.AMSDashboardEntities1']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,401 @@
+{
+	"ChannelId": "6369e123-730c-4814-8835-2af2545535cb",
+	"RunId": "36f51d8c-a013-42c9-9c4d-9601286243e6",
+	"Health": 
+		{
+		"HealthLevel": "Normal", //if not = Normal, write alert to database
+		"RuleInfo": [ ]
+		},
+	"HealthHashCode": 0,
+	"ChannelClockTime": "2015-10-14T16:34:55.84Z",
+	"FirstPublishTime": "2015-10-14T05:55:30.043Z",
+	"ChannelE2ELatency": 7.6,
+	"Inputs": 
+		{
+		"HealthLevel": "Normal", //if not normal write to Alerts
+		"Receivers": 
+			[
+				{//Regular Telemetry here":
+				"BitRate": 10091383.466666667,
+				"SourceUrl": "rtp://204.138.181.104:2000",
+				"LastReceivedTime": "2015-10-14T16:34:54.87Z",
+				"TotalBytesReceived": 48403442020,
+				"TotalBytesLost": 0,
+				"RecentBytesLost": 0,
+				"LastReceivedPTS": 3507586563,
+				"IngestFormat": "MPEG2TS",
+				"IngestProtocol": "Unicast RTP",
+				"Health": 
+					{
+					"HealthLevel": "Normal",
+					"RuleInfo": [ ]
+					},
+				"TaskIndex": 0,
+				"TaskGroupId": "VM_1"
+				}
+			]
+		},
+	"AdMarkers": 
+		{
+			"LastReceivedTime": "2015-10-14T16:31:12.082Z",
+			"LastAdMarkerID": 133056,
+			"LastAdMarkerDuration": 60
+		},
+	"ClosedCaptions": 
+		{
+			"LastReceivedTime": "2015-10-14T16:34:55.383Z"
+		},
+	"Slates": 
+		{
+			"LastInsertedTime": "2015-10-14T16:31:13.536Z",
+			"LastSlateDuration": 7260
+		},
+	"Transcoders": 
+		{
+			"HealthLevel": "Normal",
+			"VideoDecoders": 
+				[
+				    {
+						"Codec": "H.264",
+						"Pid": 0,
+						"BitRate": 8169487.866666666,
+						"ExpectedFrameRate": 29.97002997002997,
+						"Width": 1920,
+						"Height": 1080,
+						"FrameRate": 30.133333333333333,
+					    "VideoScanType": "Interlaced BFF",
+					    "TotalFramesDecoded": 1149958,
+					    "LastVideoDecodeTime": "2015-10-14T16:34:55.031Z",
+					    "TotalVideoLostDuration": 0,
+					    "VideoEncoders": 
+						[
+						    {
+								"CodecConfig": 
+									{
+										"H264Profile": "HIGH",
+										"BufferDuration": 4,
+										"GopMaxDuration": 6,
+										"NumReferenceFrames": 4,
+										"NumBFrames": 3,
+										"VideoCodec": "H.264",
+										"Type": "Video"
+									},
+								"BitRate": 3507157.6,
+								"FrameRate": 30.466666666666665,
+								"Width": 1280,
+								"Height": 720,
+								"EncoderName": "1280x720@3450000",
+								"ExpectedBitRate": 3450000,
+								"TotalFramesEncoded": 1149957,
+								"ExpectedFrameRate": 29.97002997002997,
+								"Health": 
+									{
+									"HealthLevel": "Normal",
+									"RuleInfo": [ ]
+									},
+								"TaskIndex": 0,
+								"TaskGroupId": "VM_1"
+							},
+						    {
+								"CodecConfig": 
+									{
+										"H264Profile": "MAIN",
+										"BufferDuration": 4,
+										"GopMaxDuration": 6,
+										"NumReferenceFrames": 4,
+										"NumBFrames": 3,
+										"VideoCodec": "H.264",
+										"Type": "Video"
+									},
+								"BitRate": 2236458.6666666665,
+								"FrameRate": 30.466666666666665,
+								"Width": 960,
+								"Height": 540,
+								"EncoderName": "960x540@2200000",
+								"ExpectedBitRate": 2200000,
+								"TotalFramesEncoded": 1149957,
+								"ExpectedFrameRate": 29.97002997002997,
+								"Health": 
+									{
+									"HealthLevel": "Normal",
+									"RuleInfo": [ ]
+									},
+								"TaskIndex": 0,
+								"TaskGroupId": "VM_1"
+							},
+						    {
+						    "CodecConfig": 
+							{
+							"H264Profile": "MAIN",
+							"BufferDuration": 4,
+							"GopMaxDuration": 6,
+							"NumReferenceFrames": 4,
+							"NumBFrames": 3,
+							"VideoCodec": "H.264",
+							"Type": "Video"
+							},
+						"BitRate": 1423979.6,
+						"FrameRate": 30.483333333333334,
+						"Width": 960,
+						"Height": 540,
+						"EncoderName": "960x540@1400000",
+						"ExpectedBitRate": 1400000,
+						"TotalFramesEncoded": 1149957,
+						"ExpectedFrameRate": 29.97002997002997,
+						"Health": 
+							{
+								"HealthLevel": "Normal",
+								"RuleInfo": [ ]
+							},
+						"TaskIndex": 0,
+						"TaskGroupId": "VM_1"
+						},
+						{
+						"CodecConfig": 
+							{
+							"H264Profile": "MAIN",
+							"BufferDuration": 4,
+							"GopMaxDuration": 6,
+							"NumReferenceFrames": 4,
+							"NumBFrames": 3,
+							"VideoCodec": "H.264",
+							"Type": "Video"
+							},
+						"BitRate": 914882.4,
+						"FrameRate": 30.466666666666665,
+						"Width": 512,
+						"Height": 288,
+						"EncoderName": "512x288@900000",
+						"ExpectedBitRate": 900000,
+						"TotalFramesEncoded": 1149957,
+						"ExpectedFrameRate": 29.97002997002997,
+						"Health": 
+						{
+						"HealthLevel": "Normal",
+						"RuleInfo": [ ]
+						},
+						"TaskIndex": 0,
+						"TaskGroupId": "VM_1"
+						},
+		{
+		"CodecConfig": 
+		{
+		"H264Profile": "MAIN",
+		"BufferDuration": 4,
+		"GopMaxDuration": 6,
+		"NumReferenceFrames": 4,
+		"NumBFrames": 3,
+		"VideoCodec": "H.264",
+		"Type": "Video"
+		},
+		"BitRate": 609943.4666666667,
+		"FrameRate": 30.466666666666665,
+		"Width": 512,
+		"Height": 288,
+		"EncoderName": "512x288@600000",
+		"ExpectedBitRate": 600000,
+		"TotalFramesEncoded": 1149957,
+		"ExpectedFrameRate": 29.97002997002997,
+		"Health": 
+		{
+		"HealthLevel": "Normal",
+		"RuleInfo": [ ]
+		},
+		"TaskIndex": 0,
+		"TaskGroupId": "VM_1"
+		},
+		{
+		"CodecConfig": 
+		{
+		"H264Profile": "BASELINE",
+		"BufferDuration": 4,
+		"GopMaxDuration": 6,
+		"NumReferenceFrames": 5,
+		"NumBFrames": 0,
+		"VideoCodec": "H.264",
+		"Type": "Video"
+		},
+		"BitRate": 400400.5333333333,
+		"FrameRate": 30,
+		"Width": 340,
+		"Height": 192,
+		"EncoderName": "340x192@400000",
+		"ExpectedBitRate": 400000,
+		"TotalFramesEncoded": 1149957,
+		"ExpectedFrameRate": 29.97002997002997,
+		"Health": 
+		{
+		"HealthLevel": "Normal",
+		"RuleInfo": [ ]
+		},
+		"TaskIndex": 0,
+		"TaskGroupId": "VM_1"
+		},
+		{
+		"CodecConfig": 
+		{
+		"H264Profile": "BASELINE",
+		"BufferDuration": 4,
+		"GopMaxDuration": 6,
+		"NumReferenceFrames": 5,
+		"NumBFrames": 0,
+		"VideoCodec": "H.264",
+		"Type": "Video"
+		},
+		"BitRate": 200173.46666666667,
+		"FrameRate": 30,
+		"Width": 340,
+		"Height": 192,
+		"EncoderName": "340x192@200000",
+		"ExpectedBitRate": 200000,
+		"TotalFramesEncoded": 1149957,
+		"ExpectedFrameRate": 29.97002997002997,
+		"Health": 
+		{
+		"HealthLevel": "Normal",
+		"RuleInfo": [ ]
+		},
+		"TaskIndex": 0,
+		"TaskGroupId": "VM_1"
+		}
+		],
+		"Health": 
+		{
+		"HealthLevel": "Normal",
+		"RuleInfo": [ ]
+		},
+		"TaskIndex": 0,
+		"TaskGroupId": "VM_1"
+		}
+		],
+		"AudioDecoders": 
+		[
+		{
+		"Codec": "MPEG-2 Audio",
+		"Pid": 401,
+		"BitRate": 262246.4,
+		"Channels": 2,
+		"SampleRate": 48000,
+		"TotalAccessUnitsDecoded": 1598819,
+		"RecentAccessUnitsDecoded": 2561,
+		"LastAudioDecodeTime": "2015-10-14T16:34:54.389Z",
+		"TotalAudioLostDuration": 0,
+		"AudioEncoders": 
+		[
+		    {
+		        "CodecConfig": 
+		        {
+		        "AudioCodec": "AAC",
+		        "HeAac": 1,
+		        "MpegVersion": "7",
+		        "AacHeaderType": "AAC_HEADER_ADTS",
+		        "Type": "Audio"
+		        },
+		        "ExpectedBitRate": 56000,
+		        "BitRate": 56029.73333333333,
+		        "Language": "ENG",
+		        "EncoderName": "AAC@56000_8",
+		        "TotalAccessUnitsEncoded": 826282,
+		        "Health": 
+		        {
+		        "HealthLevel": "Normal",
+		        "RuleInfo": [ ]
+		        },
+		        "TaskIndex": 8,
+		        "TaskGroupId": "VM_1"
+		    }
+		],
+		"Health": 
+		{
+		    "HealthLevel": "Normal",
+		    "RuleInfo": [ ]
+		},
+		"TaskIndex": 8,
+		"TaskGroupId": "VM_1"
+		}
+		]
+		},
+		"Outputs": 
+		{
+		"HealthLevel": "Normal",
+		"Packagers": 
+		[
+		{
+		"Format": "SmoothStreaming",
+		"AggregateBitRate": 9269886.933333334,
+		"LastFragmentDuration": 6.006,
+		"TotalAudioStreams": 1,
+		"TotalVideoStreams": 7,
+		"TotalAudioLanguages": 1,
+		"Encryption": 
+		{
+		"EncryptionFormat": "",
+		"KeyRotationFrequency": 0,
+		"LastKeyRotationTime": "0001-01-01T00:00:00Z",
+		"EncryptionKeyId": "",
+		"BuyDRMMediaID": "",
+		"LicenseAcquisitionUrl": "",
+		"Health": 
+		{
+		"HealthLevel": "Normal",
+		"RuleInfo": [ ]
+		},
+		"TaskIndex": 0,
+		"TaskGroupId": ""
+		},
+		"Publishers": 
+		[
+		{
+		"PublishingUrl": "HTTP://nbc01.nbcsgliveprodeastms.channel.mediaservices.windows.net:80/ingest.isml",
+		"Protocol": "HTTP",
+		"PublishingQueueCapacity": 120,
+		"PublishingQueueDuration": 0.001,
+		"LastSentTime": "2015-10-14T16:34:51.657Z",
+		"UploadSpeed": -1,
+		"EgressBitRate": 9296252.266666668,
+		"ServerResponseTime": -1,
+		"HopsToServer": -1,
+		"TotalDisconnectCount": 0,
+		"TotalConnectFailCount": 46486,
+		"LastDisconnectTime": "0001-01-01T00:00:00Z",
+		"Health": 
+		{
+		"HealthLevel": "Normal",
+		"RuleInfo": [ ]
+		},
+		"TaskIndex": 9,
+		"TaskGroupId": "VM_1"
+		},
+		{
+		"PublishingUrl": "HTTP://nbc01.nbcsgliveprodwestms.channel.mediaservices.windows.net:80/ingest.isml",
+		"Protocol": "HTTP",
+		"PublishingQueueCapacity": 120,
+		"PublishingQueueDuration": 0.001,
+		"LastSentTime": "2015-10-14T16:34:50.106Z",
+		"UploadSpeed": -1,
+		"EgressBitRate": 9296252.266666668,
+		"ServerResponseTime": -1,
+		"HopsToServer": -1,
+		"TotalDisconnectCount": 0,
+		"TotalConnectFailCount": 46500,
+		"LastDisconnectTime": "0001-01-01T00:00:00Z",
+		"Health": 
+		{
+		"HealthLevel": "Normal",
+		"RuleInfo": [ ]
+		},
+		"TaskIndex": 9,
+		"TaskGroupId": "VM_1"
+		}
+		],
+		"Health": 
+		{
+		"HealthLevel": "Normal",
+		"RuleInfo": [ ]
+		},
+		"TaskIndex": 9,
+		"TaskGroupId": "VM_1"
+		}
+		]
+	}
+}
