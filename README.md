@@ -70,6 +70,6 @@ Lastly, specify the user role for all individuals who will access the applicatio
 ### Deploy from Visual Studio
 The last step is to build and deploy the application from Visual Studio. Open the solution in Visual Studio, right-click on the **MediaDashboard.Web** project, select **Publish** and complete the Publish Web Application wizard. Create a new publish profile and select **Microsoft Azure Web Apps** as your publish target. Enter the credentials for your Azure subscription and select the web app that you created. Update the Connection string with the domain name of your Azure site. Alternatively, you can download the Publish Profile for your application for the Azure Portal and upload it through the Publish wizard in Visual Studio.
 
-On the Settings page, unselect **Enable Organizational Authentication** (this will recreate the application and overwrite the configuration from the previous steps). Lastly, publish the app to the destination.
+On the Settings page, deselect **Enable Organizational Authentication** (this will recreate the application and overwrite the configuration from the previous steps). Lastly, publish the app to the destination.
 #### Debugging Errors
 If your receive any errors after publishing the application, you can debug by launching the Log Stream for your application from the Azure Portal. Under the **Development tools** section, launch **Advanced tools**. Next, select **Log stream** from the **Tools** menu. This stream can be refreshed each time you restart or republish the app for debugging purposes.
