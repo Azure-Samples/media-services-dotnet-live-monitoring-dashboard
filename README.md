@@ -8,7 +8,7 @@ author: krishndu
 Azure Media Services Live Monitoring Dashboard for tracking the health of media services
 
 ## Information
-The Live Monitoring Dashboard enables Azure Media Services (AMS) customers to view the health of their channel and origin deployments. The dashboard captures the state of ingest, archive, encode, and origin telemetry entities. The dashboard supplies data on the incoming data rate for video stream ingestion, dropped data in storage archive, encoding data rate, and origin HTTP error statuses and latencies.
+The Live Monitoring Dashboard enables Azure Media Services (AMS) customers to view the health of their channel and origin deployments. The dashboard captures the state of ingest, archive, encode, and origin telemetry entities. The dashboard supplies data on the incoming data rate for video stream ingestion, dropped data in storage archive, encoding data rate, and origin HTTP error statuses and latencies. The functionality and usage of the Live Monitoring Dashboard is detailed in our [blog post](https://azure.microsoft.com/en-au/blog/azure-media-services-live-monitoring-dashboard-open-source-release/).
 
 ### Preview of the Dashboard![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/dashboard.PNG)
 
@@ -20,7 +20,8 @@ Special thanks to [Prakash Duggaraju](https://github.com/duggaraju) for his help
 To deploy this application, first create a host Azure Active Directory tenant through the [old Azure portal](manage.windowsazure.com/). In this tenant, create an application by clicking on **Add** under the **Applications** tab. Next, provide an application name and properties, as illustrated below.
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-applications.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-create-application.png)
-![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-application-properties.png)### Update Application Manifest
+![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-application-properties.png)
+### Update Application Manifest
 Next, update the application manifest to specify the type of roles supported by the application. Once the application is created, click on **Manage Manifest** then **Download Manifest**. In the downloaded manifest, replace the **appRoles** line with the content of the **rolesettings.xml** file from the **\Monitoring Dashboard\MediaDashboard** directory. Upload the updated manifest file. Lastly, generate and save a tenant client secret key. Make sure to record this key in a safe place.
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-application-created.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/original-manifest.png)
