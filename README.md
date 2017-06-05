@@ -67,6 +67,8 @@ Next, update the template **Web.config** file in the **MediaDashboard.Web** proj
 Lastly, specify the user role for all individuals who will access the application as either **Operator** or **Administrator** under the **User** tab of the application page.
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-user-role-assignments.png)
 ![Dashboard Sample](https://github.com/Azure-Samples/media-services-dotnet-live-monitoring-dashboard/raw/master/Documentation/azure-manage-portal-assign-user-roles.png)
+### Run the SQL preparation script
+Open the solution in Visual Studio, and select the SQL script which is in \Other\Create AMS DB.sql. Double-click on it to open and select **Execute** (icon on the top left). This opens a dialog box where you need to select the database in Azure that you previously created. Authenticate to connect to the database and run the script to prepare it.
 ### Deploy from Visual Studio
 The last step is to build and deploy the application from Visual Studio. Open the solution in Visual Studio, right-click on the **MediaDashboard.Web** project, select **Publish** and complete the Publish Web Application wizard. Create a new publish profile and select **Microsoft Azure Web Apps** as your publish target. Enter the credentials for your Azure subscription and select the web app that you created. Update the Connection string with the domain name of your Azure site. Alternatively, you can download the Publish Profile for your application for the Azure Portal and upload it through the Publish wizard in Visual Studio.
 
