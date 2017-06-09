@@ -59,6 +59,8 @@ namespace MediaDashboard.Common.Metrics.MediaServices
                         var originReservedUnits = (int)t.Miscellaneous;
                         var theoreticalCapacity = originReservedUnitTheoreticalCapacityInMbps * originReservedUnits;
 
+                        if (theoreticalCapacity == 0) theoreticalCapacity = 3 * originReservedUnitTheoreticalCapacityInMbps; // for standard streaming endpoint
+
                         var newMetric = new Tuple<decimal, Metric>(
                             Math.Round((currentRate / theoreticalCapacity) * 100, 3),
                             BytesSentUtilizationRatioMetric);
