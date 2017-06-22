@@ -1,21 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{45B0E5C6-E57B-4B05-A2AB-C4910E7CE7B9}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A7A9BBCD-DEE9-46C9-9F42-96D2211E8239}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared Assemblies", "Shared Assemblies", "{AB7B8883-F9B5-4A45-AA98-F6F6B90D66D4}"
-	ProjectSection(SolutionItems) = preProject
-		Shared Assemblies\Microsoft.Cloud.Media.Streaming.Common.Clients.AventusClient.dll = Shared Assemblies\Microsoft.Cloud.Media.Streaming.Common.Clients.AventusClient.dll
-		Shared Assemblies\Microsoft.WindowsAzure.MediaServices.Client.dll = Shared Assemblies\Microsoft.WindowsAzure.MediaServices.Client.dll
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other", "Other", "{A492C22B-AFEB-4EC3-A0FD-A76FCC39C2EA}"
 	ProjectSection(SolutionItems) = preProject
