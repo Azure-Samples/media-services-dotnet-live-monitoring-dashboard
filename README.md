@@ -1,7 +1,7 @@
 ---
 services: media-services
 platforms: javascript
-author: krishndu
+author: duggaraju
 ---
 
 # Media Services: Live Monitoring Dashboard
