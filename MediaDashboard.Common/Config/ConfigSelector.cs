@@ -42,8 +42,8 @@ namespace MediaDashboard.Common.Config
         {
             var customConfig = GetCustomConfigOverrideConfiguration();
             if(customConfig.ConfigType==null)
-                throw new Exception(
-                        "Configuration Type not properly read from .json Configuration");
+                throw new Exception("Configuration Type not properly read from .json Configuration");
+
             switch (customConfig.ConfigType.ToLower())
             {
                 case"file":

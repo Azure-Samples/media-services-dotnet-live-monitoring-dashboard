@@ -24,7 +24,7 @@ namespace MediaDashboard.Common.Helpers
                 EncodingType = ch.EncodingType.ToString(),
                 EncodingPreset = ch.Encoding?.SystemPreset,
                 FragmentDuration = ch.Input.KeyFrameInterval?.Seconds,
-                HLSPackingRatio = ch.Output?.Hls.FragmentsPerSegment,
+                HLSPackingRatio = ch.Output?.Hls?.FragmentsPerSegment,
                 RunningTime = ch.GetRunningTime(),
                 Created = ch.Created,
                 LastModified = ch.LastModified,

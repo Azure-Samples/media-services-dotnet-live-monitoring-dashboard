@@ -27,7 +27,8 @@ namespace MediaDashboard.Persistence.Caching
                 try
                 {
                     var cacheConfig = App.Config.Sys.Cache;
-                    if (null == Config) {
+                    if (null == Config)
+                    {
                         Config = new MdCacheConfig(cacheConfig.Identifier, cacheConfig.CacheName, cacheConfig.AuthorizationToken);
                     }
 
