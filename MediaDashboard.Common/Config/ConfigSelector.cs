@@ -33,7 +33,8 @@ namespace MediaDashboard.Common.Config
         {
             // Use standard configuration from .csconfig-files if we are running
             // in Azure or the Emulator and no custom config has been specified
-            return new BlobConfigReader(MasterConfig.ConfigStorageConnectionString,
+            return new BlobConfigReader(
+                MasterConfig.ConfigStorageConnectionString,
                 MasterConfig.ConfigContainerName,
                 MasterConfig.ConfigBlobName);
         }
