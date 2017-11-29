@@ -15,11 +15,11 @@ function ($scope, $http, $interval, APP_CONFIG, params) {
     function refreshView() {
         $scope.refreshViewCount = $scope.refreshViewCount + 1;
         var url = getOriginUrl();
-        $http.get(url).success(function (data) {
-            $scope.origin = data;
+        $http.get(url).then(function (response) {
+            $scope.origin = response.data;
             $scope.lastRefreshTime = new Date();
-        }).error(function (data) {
-            $scope.error = data;
+        }).catch(function (response) {
+            $scope.error = response.data;
         });
     }
 

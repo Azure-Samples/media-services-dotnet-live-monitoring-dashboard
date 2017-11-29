@@ -48,12 +48,12 @@ angular.module('mediaApp.detailsView', ['ngRoute'])
             // $('#loader').show();
             var url = APP_CONFIG.apiUrl + "/Customers/" + $scope.id;
 
-            $http.get(url).success(function (data) {
-                $scope.customer = data;
+            $http.get(url).then(function (response) {
+                $scope.customer = response.data;
                 updateData($scope.customer);
                 $scope.customerLastRefreshTime = new Date();
-            }).error(function (data) {
-                $scope.customerError = JSON.stringify(data);
+            }).catch(function (response) {
+                $scope.customerError = JSON.stringify(response.data);
             }).finally(function () {
                 $('#loader').hide();
                 $scope.$emit("refresh-end", { refreshViewCount: $scope.refreshViewCount });
@@ -77,10 +77,10 @@ angular.module('mediaApp.detailsView', ['ngRoute'])
             var state = getEntityState(channel.Id);
             $http.get(channel.ThumbnailUrl, {
                 responseType: "arraybuffer"
-            }).success(function (response) {
-                var blob = new Blob([response], { type: "image/jpeg" });
+            }).then(function (response) {
+                var blob = new Blob([response.data], { type: "image/jpeg" });
                 state.Thumbnail = URL.createObjectURL(blob);
-            }).error(function (data) {
+            }).catch(function (response) {
                 state.Thumbnail = '/Content/noimage.png';
             });
         }
@@ -156,7 +156,7 @@ angular.module('mediaApp.detailsView', ['ngRoute'])
                     originHostName: channel.OriginHostName 
                 }
             };
-            $http.get(getProgramUrl(account, program) + "/Urls", params).success(function (urls) {
+            $http.get(getProgramUrl(account, program) + "/Urls", params).then(function (urls) {
                 $scope.popupPreview(urls ? urls.SmoothStreamUrl : "No locators present!");
             });
         }
@@ -180,7 +180,7 @@ angular.module('mediaApp.detailsView', ['ngRoute'])
                 $http.get(getProgramUrl(account, program) + "/Urls",
                     {
                         params: { originHostName: channel.OriginHostName}
-                    } ).success(function (urls) {
+                    } ).then(function (urls) {
                     if (urls && urls.SmoothStreamUrl) {
                         var state = getEntityState(program.Id);
                         state.player = startPreview(urls.SmoothStreamUrl, "application/vnd.ms-sstr+xml", $event);
@@ -295,70 +295,70 @@ angular.module('mediaApp.detailsView', ['ngRoute'])
 
         $scope.startChannel = function (account, channel) {
             $http.post(getChannelUrl(account, channel) + "/Start")
-            .success(function () {
+            .then(function () {
                 alert("Starting channel!");
-            }).error(function (data) {
-                alert("Failed to start channel!" + data.Message);
+            }).catch(function (response) {
+                alert("Failed to start channel!" + response.data.Message);
             });
         }
 
         $scope.resetChannel = function (account, channel) {
             $http.post(getChannelUrl(account, channel) + "/Reset")
-            .success(function(operation) {
-                $rootScope.$emit("operation", operation, "Channel start");
+            .then(function(response) {
+                $rootScope.$emit("operation", response.data, "Channel start");
                 alert("Resetting channel!");
-            }).error(function (data) {
-                alert("Failed to reset channel!" + data.Message);
+            }).catch(function (response) {
+                alert("Failed to reset channel!" + response.data.Message);
             });
         }
 
         $scope.stopChannel = function (account, channel) {
             $http.post(getChannelUrl(account, channel) + "/Stop")
-            .success(function(operation) {
-                $rootScope.$emit("operation", operation, "Channel stop");
+            .then(function(response) {
+                $rootScope.$emit("operation", response.data, "Channel stop");
                 alert("Stopping channel!");
-            }).error(function (data) {
-                alert("Failed to stop channel!" + data.Message);
+            }).catch(function (response) {
+                alert("Failed to stop channel!" + response.data.Message);
             });
         }
 
         $scope.startProgram = function (account, program) {
             $http.post(getProgramUrl(account, program) + "/Start")
-            .success(function(operation) {
-                $rootScope.$emit("operation", operation, "Program start");
+            .then(function(response) {
+                $rootScope.$emit("operation", response.data, "Program start");
                 alert("Starting Program!");
-            }).error(function (data) {
-                alert("Failed to start Program!" + data.Message);
+            }).catch(function (response) {
+                alert("Failed to start Program!" + response.data.Message);
             });
         }
 
         $scope.stopProgram = function (account, program) {
             $http.post(getProgramUrl(account, program) + "/Stop")
-            .success(function(operation) {
-                $rootScope.$emit("operation", operation, "Program stop");
+            .then(function(response) {
+                $rootScope.$emit("operation", response.data, "Program stop");
                 alert("Stopping program!");
-            }).error(function (data) {
-                alert("Failed to stop program!" + data.Message);
+            }).catch(function (response) {
+                alert("Failed to stop program!" + response.data.Message);
             });
         }
 
         $scope.startOrigin = function (account, origin) {
             $http.post(getOriginUrl(account, origin) + "/Start")
-            .success(function(operation) {
-                $rootScope.$emit("operation", operation, "Origin start");
+            .then(function(response) {
+                $rootScope.$emit("operation", response.data, "Origin start");
                 alert("Starting origin!");
-            }).error(function (data) {
-                alert("Failed to start origin!" + data.Message);
+            }).catch(function (response) {
+                alert("Failed to start origin!" + response.data.Message);
             });
         }
 
         $scope.stopOrigin = function (account, origin) {
             $http.post(getOriginUrl(account, origin) + "/Stop")
-            .success(function(operation) {
-                $rootScope.$emit("operation", operation, "Origin stop");
+            .then(function(operation) {
+                $rootScope.$emit("operation", response.data, "Origin stop");
                 alert("Stopping origin!");
-            }).error(function (data) {
-                alert("Failed to stop origin!" + data.Message);
+            }).catch(function (response) {
+                alert("Failed to stop origin!" + response.data.Message);
             });
         }
 

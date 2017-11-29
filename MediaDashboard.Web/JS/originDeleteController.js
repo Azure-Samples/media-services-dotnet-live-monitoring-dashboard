@@ -14,10 +14,10 @@
         $scope.delete = function () {
             var url = APP_CONFIG.apiUrl + "/Accounts/" + $scope.account.Name + "/Origins/" + $scope.origin.Id;
             $http.delete(url)
-                .success(function () {
+                .then(function () {
                     alert("Origin deletion submitted!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to delete Origin!" + body.Message)
                 });
             $scope.$close();

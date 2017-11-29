@@ -28,11 +28,11 @@
             };
 
             $http.post(url, data)
-                .success(function(operation) {
-                    $rootScope.$emit("operation", operation, "Show Slate");
+                .then(function(response) {
+                    $rootScope.$emit("operation", response.data, "Show Slate");
                     alert("Slate operation submitted!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to submit slate operation!" + body.Message)
                 });
             $scope.$close();
@@ -49,11 +49,11 @@
             };
 
             $http.post(url, data)
-                .success(function (operation) {
-                    $rootScope.$emit("operation", operation, "Show Ad Marker");
+                .then(function (response) {
+                    $rootScope.$emit("operation", response.data, "Show Ad Marker");
                     alert("Ad operation submitted!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to submit  Ad operation!" + body.Message)
                 });
             $scope.$close();

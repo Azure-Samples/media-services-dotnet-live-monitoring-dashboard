@@ -32,10 +32,10 @@
                 AllowList: splitIpList($scope.allowList),
             }
             $http.put(url, data)
-                .success(function () {
+                .then(function () {
                     alert("Origin updated!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to update Origin!" + body.Message)
                 });
             $scope.$close();

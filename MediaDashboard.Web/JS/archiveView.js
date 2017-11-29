@@ -16,11 +16,11 @@ angular.module('mediaApp.archiveTelemetryView', [])
         function refreshView() {
             $scope.refreshViewCount = $scope.refreshViewCount + 1;
             var url = getArchiveUrl();
-            $http.get(url).success(function (data) {
-                $scope.metricGroups = data;
+            $http.get(url).then(function (response) {
+                $scope.metricGroups = response.data;
                 $scope.lastRefreshTime = new Date();
-            }).error(function (data) {
-                $scope.error = data;
+            }).catch(function (response) {
+                $scope.error = response.data;
             });
         }
 

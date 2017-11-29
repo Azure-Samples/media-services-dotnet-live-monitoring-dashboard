@@ -1,0 +1,20 @@
+.navbar {
+    font-family: 'Segoe UI';
+    font-size: 16px;        
+}
+
+.fixed-top {
+    background: #0F66A5;
+    height: 80px;
+}
+
+.navbar-header {
+    background:#037cc1;
+}
+
+.vertical-divider {
+    border-left:1px solid #000000;
+    border-right:1px solid #000000;
+    height:80px;
+}
+

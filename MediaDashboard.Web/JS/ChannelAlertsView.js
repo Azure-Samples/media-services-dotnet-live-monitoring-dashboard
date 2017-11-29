@@ -90,12 +90,12 @@ angular.module('mediaApp.channelAlertsView', [])
                 url: url,
                 method: 'GET',
                 params: $scope.queryParams
-            }).success(function (data) {
-                $scope.alerts = data;
+            }).then(function (response) {
+                $scope.alerts = response.data;
                 $scope.alertsLastRefreshTime = new Date();
                 $('#systemLoader').hide();
-            }).error(function (data) {
-                $scope.alertsError = data;
+            }).catch(function (response) {
+                $scope.alertsError = response.data;
                 $('#systemLoader').hide();
             });
         }

@@ -30,13 +30,13 @@ angular.module('mediaApp.channelView', ['ngRoute'])
         function showData() {
             var url = getChannelUrl();
            
-            $http.get(url).success(function (data) {
-                var results =data;
+            $http.get(url).then(function (response) {
+                var results = response.data;
                 $scope.details = results;
                 $scope.LastRefreshTime = new Date();
                 
-            }).error(function (data) {
-                $scope.error = data.Message;
+            }).catch(function (response) {
+                $scope.error = response.data.Message;
                 
             });
         }

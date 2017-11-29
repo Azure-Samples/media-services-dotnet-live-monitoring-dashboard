@@ -33,10 +33,10 @@
                 PreviewAllowList: splitIpList($scope.previewAllowList)
             }
             $http.put(url, data)
-                .success(function () {
+                .then(function () {
                     alert("Channel update submitted!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to update Channel!" + body.Message)
                 });
             $scope.$close();

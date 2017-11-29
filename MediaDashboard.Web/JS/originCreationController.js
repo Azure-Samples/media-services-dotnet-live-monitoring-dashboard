@@ -19,10 +19,10 @@
                 ScaleUnits: $scope.scaleUnits,
             };
             $http.post(url, data)
-                .success(function () {
+                .then(function () {
                     alert("Origin created!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to craeate Origin!" + body.Message)
                 });
             $scope.$close();

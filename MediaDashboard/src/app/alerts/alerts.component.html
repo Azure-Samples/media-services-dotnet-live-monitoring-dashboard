@@ -1,0 +1,15 @@
+<div ng-show="show_alerts" class="alerts col-sm-3">
+  <div class="alertsLoader">
+    <i>Loading dashboard alerts...</i>
+  </div>
+  <div>
+    <a class="linkTo close-button pull-right" ng-click="show_alerts = false">&times;</a>
+    <h5>HEALTH STATUS</h5>
+    <div class="page-size" style="padding-top:10px; padding-bottom:10px;">
+      page size :
+      <a href="javascript:void(0)" ng-click="setPageSize(pageSize)" ng-repeat="pageSize in [5,10,20,30]"> {{pageSize}}</a>
+    </div>
+  </div>
+  <sub>Last refreshed: {{alertsLoaderLastRefreshTime|date:'medium'}}</sub>
+  <div class="alert-warning">{{healthStatusError}}</div>
+</div>

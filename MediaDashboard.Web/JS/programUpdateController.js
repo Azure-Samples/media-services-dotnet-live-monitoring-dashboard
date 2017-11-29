@@ -21,10 +21,10 @@
                 ArchiveWindowLength: $scope.archiveWindowLength
             }
             $http.put(url, data)
-                .success(function () {
+                .then(function () {
                     alert("Program updated!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to update Program!" + body.Message)
                 });
             $scope.$close();

@@ -1,0 +1,18 @@
+<div>
+  <a class="linkTo close-button pull-right" ng-click="configure=false">&times;</a>
+  <h5>Configure New Dashboard (TODO)</h5>
+  <ul class="list-unstyled" *ngFor="let cg of customerGroups">
+    <li>
+      <span class="badge glyphicon glyphicon-menu-right"></span>
+      <b class="linkTo" data-toggle="collapse" data-target="'#collapse' + $index">{{cg.Name}}</b>
+      <div class="collapse" id="{{'collapse'+$index}}">
+        <ul class="list-unstyled" *ngFor="let c of cg.Customers">
+          <li>
+            <span class="badge"></span>
+            <b>{{c.Name}}</b>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>

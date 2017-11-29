@@ -13,6 +13,7 @@ using System.Web.Http;
 namespace MediaDashboard.Web.Api.Controllers
 {
     [Authorize]
+    [Route("api/accounts/{account}/[controller]/[action]")]
     public abstract class ControllerBase : ApiController
     {
 

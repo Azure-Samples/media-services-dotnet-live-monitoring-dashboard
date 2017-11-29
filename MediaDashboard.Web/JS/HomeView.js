@@ -30,10 +30,10 @@ angular.module('mediaApp.homeView', ['ngRoute'])
     function loadCustomerGroups() {
         $('.customersLoader').show();
         var url = APP_CONFIG.apiUrl + "/CustomerGroups";
-        $http.get(url).success(function (data) {
-            $scope.customerGroups = data;
+        $http.get(url).then(function (response) {
+            $scope.customerGroups = response.data;
             $scope.customerGroupsLastRefreshTime = new Date();
-        }).error(function (data) {
+        }).catch(function (response) {
             $scope.customerGroupsError = data.Message;
         }).finally(function () {
             $('.customersLoader').hide();
@@ -48,12 +48,12 @@ angular.module('mediaApp.homeView', ['ngRoute'])
 
         var url = APP_CONFIG.apiUrl + "/DashboardAlerts";
 
-        $http.get(url).success(function (data) {
-            $scope.alerts = data;
+        $http.get(url).then(function (response) {
+            $scope.alerts = response.data;
             $scope.alertsLoaderLastRefreshTime = new Date();
             $('.alertsLoader').hide();
-        }).error(function (data) {
-            $scope.alertsError = data.Message;
+        }).catch(function (response) {
+            $scope.alertsError = response.data.Message;
             $('.alertsLoader').hide();
         });
     }

@@ -46,16 +46,16 @@ angular.module('mediaApp.channelTelemetryView', [])
         $('#systemLoader').show();
         var url = getTelemetryUrl();
 
-        $http.get(url).success(function (data) {
+        $http.get(url).then(function (response) {
             if ($scope.telemetry) {
-                angular.merge($scope.telemetry, data);
+                angular.merge($scope.telemetry, response.data);
             } else {
                 $scope.telemetry = data;
             }
             $scope.telemetryLastRefreshTime = new Date();
             $('#systemLoader').hide();
-        }).error(function (data) {
-            $scope.telemetryError = data.Message;
+        }).catch(function (response) {
+            $scope.telemetryError = response.data.Message;
             $('#systemLoader').hide();
         });
     }

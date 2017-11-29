@@ -1,0 +1,36 @@
+.fixed-left {
+    background:#037cc1;
+    width:80px;
+    height:100vh;
+}
+
+.horizontal-divider {
+    border-top:1px solid #0F66A5;
+    border-bottom:1px solid #0F66A5;
+    width:80px;
+}
+
+.row-fluid>[class*="col-"] {
+    padding-right:0px;
+    padding-left:0px;
+}
+
+.customergroup {
+    margin-left: 28px;
+    margin-top:  28px;
+}
+
+.customergroup tr {
+    text-align: center;
+    margin-bottom: 4px;
+    border: 4px solid white;
+}
+
+.customergroup td{
+    padding-left:10px;
+}
+
+.customer-name {
+    text-align: left;
+}
+

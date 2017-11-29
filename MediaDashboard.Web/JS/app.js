@@ -29,6 +29,10 @@ var myApp = angular.module('mediaApp', [
     'mediaApp.originAlertsView'
 ]);
 
+myApp.config(['$locationProvider', function ($locationProvider) {
+    $locationProvider.html5Mode(false).hashPrefix('');
+}]);
+
 myApp.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({
         redirectTo: '/home'

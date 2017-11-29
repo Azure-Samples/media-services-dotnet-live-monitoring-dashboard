@@ -18,11 +18,11 @@ angular.module('mediaApp.ingestTelemetryView', [])
         $scope.refreshViewCount = $scope.refreshViewCount + 1;
         var url = getIngestUrl();
 
-        $http.get(url).success(function (data) {
-            $scope.metricGroups = data;
+        $http.get(url).then(function (response) {
+            $scope.metricGroups = response.data;
             $scope.lastRefreshTime = new Date();
-        }).error(function (data) {
-            $scope.error = data;
+        }).catch(function (response) {
+            $scope.error = response.data;
         });
     }
 

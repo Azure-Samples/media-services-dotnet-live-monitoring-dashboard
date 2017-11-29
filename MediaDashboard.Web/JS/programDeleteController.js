@@ -15,10 +15,10 @@
         $scope.delete = function () {
             var url = APP_CONFIG.apiUrl + "/Accounts/" + $scope.account.Name + "/Programs/" + $scope.program.Id;
             $http.delete(url)
-                .success(function () {
+                .then(function () {
                     alert("Program deleted!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to delete Program!" + body.Message)
                 });
             $scope.$close();

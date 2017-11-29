@@ -1,0 +1,9 @@
+<div>
+  <ul>
+      <li ng-repeat="item in alerts | pagingFilter:dataPageSize:dataCurrentPage" ng-class="'list' + getHealthLevel(item.Status)">
+        <p>{{item.Date|date:'medium'}}&nbsp;&nbsp;{{item.Description}}</p>
+      </li>
+  </ul>
+  <ngb-pagination data="alerts" current-page="dataCurrentPage" page-size="dataPageSize">
+    </ngb-pagination>
+</div>

@@ -1,0 +1,65 @@
+<div class="navbar navbar-inverse fixed-top py-0 pl-0">
+    <div class="navbar-header mr-auto">
+        <img routerLink="/home" [src]="'../../assets/images/iconHome.png'" />
+    </div>
+    <div class="navbar-brand mr-auto">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar">
+        </button>
+        <h2>TODO: LIVE MONITORING DASHBOARD</h2>
+    </div>
+    <div id="topNavbar" class="navbar-collapse collapse">
+        <ul class="navbar-nav  ml-auto">
+            <li class="nav-item active vertical-divider"></li>
+            <li class="nav-item active userinfo dropdown">
+                <a class="navbar-link" data-toggle="dropdown">
+                    <div class="media-left media-middle">
+                        <img [src]="'../../assets/images/info.png'" />
+                    </div>
+                    <div class="media-right media-middle">
+                        <p>{{userInfo.userName}}</p>
+                        <small>({{ userInfo.profile.roles ? userInfo.profile.roles[0] : 'Viewer'}})</small>
+                    </div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a ng-click="logout()">Sign Out</a></li>
+                </ul>
+            </li>
+            <li class="nav-item active vertical-divider"></li>
+            <li class="nav-item active connectivity dropdown">
+                <a data-toggle="dropdown" class="navbar-link">
+                    <div class="media-left media-middle">
+                        <img [src]="'../../assets/images/signalGreat.png'" />
+                    </div>
+                    <div class="media-middle media-right">
+                        <p>Connectivity</p>
+                        <small ng-if="!refreshing">Refresh in {{refreshDelay}} sec</small>
+                        <small ng-if="refreshing">Refreshing...</small>
+                    </div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>Last refreshed: {{refreshTime|date:'medium'}}</li>
+                    <li>Refresh counter: {{refreshViewCount}}</li>
+                </ul>
+            </li>
+            <li class="vertical-divider"></li>
+            <li><img onclick="location.reload()" [src]="'../../assets/images/iconRefresh.png'" /></li>
+            <li class="vertical-divider"></li>
+            <li class="dropdown notification">
+                <span *ngIf="operations.length>0" class="label label-pill label-primary">{{operations.length}}</span>
+                <img data-toggle="dropdown" [src]="'../../assets/images/iconNotification.png'" />
+                <ul class="dropdown-menu">
+                    <li *ngFor="let operation of operations">{{operation.Message}} - {{operation.State}}</li>
+                </ul>
+            </li>
+            <li class="vertical-divider"></li>
+            <li class="dropdown">
+                <img data-toggle="dropdown" [src]="'../../assets/images/iconHamburger.png'" />
+                <ul class="dropdown-menu">
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="systemLoader" class="ml-auto collapse" >
+        <i>Updating&nbsp;...&nbsp;</i>
+    </div>
+</div>

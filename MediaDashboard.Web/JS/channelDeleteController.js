@@ -14,10 +14,10 @@
         $scope.delete = function () {
             var url = APP_CONFIG.apiUrl + "/Accounts/" + $scope.account.Name + "/Channels/" + $scope.channel.Id;
             $http.delete(url)
-                .success(function () {
+                .then(function () {
                     alert("Channel delete submitted!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to delete Channel!" + body.Message)
                 });
             $scope.$close();

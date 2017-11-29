@@ -29,10 +29,10 @@ angular.module('mediaApp.programView', ['ngRoute'])
         var params = {
             params: { originHostName: $scope.channel.OriginHostName }
         };
-        $http.get(url, params).success(function (data){
-            $scope.program.Urls = data;
-        }).error(function (data){
-            $scope.prgmError = data.Message;
+        $http.get(url, params).then(function (response){
+            $scope.program.Urls = response.data;
+        }).catch(function (response){
+            $scope.prgmError = response.data.Message;
         });
     }
 

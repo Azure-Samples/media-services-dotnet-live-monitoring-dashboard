@@ -23,10 +23,10 @@
                 ManifestName: $scope.manifestName,
             };
             $http.post(url, data)
-                .success(function() {
+                .then(function() {
                     alert("Program creation submitted!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to craeate Program!" + body.Message)
                 });
             $scope.$close();

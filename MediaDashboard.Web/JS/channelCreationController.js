@@ -57,11 +57,11 @@
                 PreviewAllowList: splitIpList($scope.settings.previewAllowList),
             }
             $http.post(url, data)
-                .success(function (operation) {
-                    $rootScope.$emit("operation", operation, "Channel start")
+                .then(function (response) {
+                    $rootScope.$emit("operation", response.data, "Channel start")
                     alert("Channel creation submitted!");
                 })
-                .error(function (body) {
+                .catch(function (body) {
                     alert("Failed to create Channel!" + body.Message)
                 });
             $scope.$close();

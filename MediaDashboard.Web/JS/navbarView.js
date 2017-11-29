@@ -45,7 +45,7 @@ angular.module('mediaApp.navbarView', [])
         function refreshView() {
             if (!$scope.refreshing) {
                 --$scope.refreshDelay;
-                if ($scope.refreshDelay == 0) {
+                if ($scope.refreshDelay === 0) {
                     $interval.cancel(timer);
                     $scope.refreshing = true;
                     $rootScope.$broadcast("refresh-start");

@@ -1,0 +1,56 @@
+<div class="row-fluid mt-0">
+  <div class="col-sm-2 fixed-left">
+    <ul class="nav navbar-nav">
+      <li class="horizontal-divider"></li>
+      <li><img class="linkTo" [src]="'../../assets/images/iconAdd.png'" ng-click="configure=!configure" /></li>
+      <li class="horizontal-divider"></li>
+      <li class="dropdown alerts">
+        <img class="linkTo" [src]="'../../assets/images/iconNotification.png'" ng-click="show_alerts = !show_alerts" />
+      </li>
+      <li role="separator" class="horizontal-divider"></li>
+    </ul>
+  </div>
+  <div [hidden]="!configure" class="col-sm-3">
+    <app-alerts></app-alerts>
+  </div>
+  <div class="col-sm-7 customergroups">
+    <div class="panel customergroup">
+      <table>
+        <tbody *ngFor="let cg of customerGroups">
+          <tr>
+            <th colspan="2">{{cg.Name}}</th>
+            <td>Primary Account</td>
+            <td>Secondary Account</td>
+            <td>Channels</td>
+            <td>Archives</td>
+            <td>Origins</td>
+            <td>Programs</td>
+          </tr>
+          <tr *ngFor="let c of cg.Customers">
+            <td ng-class="'level' + c.Health"></td>
+            <td class="customer-name"><a href="#/details/{{c.Id}}">{{c.Name}}</a></td>
+            <td><img [src]="'../../assets/images/Level-' + c.Accounts[0].Health + '.png'" /><br />{{c.Accounts[0].Name}}</td>
+            <td><img *ngIf="c.Accounts.length > 1" [src]="'/../../assets/images/Level-' + c.Accounts[1].Health + '.png'" /><br />{{c.Accounts[1].Name}}</td>
+            <td>{{c.ChannelCount}}</td>
+            <td>{{c.ArchiveCount}}</td>
+            <td>{{c.OriginCount}}</td>
+            <td>{{c.ProgramCount}}</td>
+          </tr>
+          <tr><td></td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel-body">
+      <div class="customersLoader">
+        <i>Loading customers...</i>
+      </div>
+      <p>
+        <sub>Last refreshed: {{customerGroupsLastRefreshTime|date:'medium'}}</sub>
+      </p>
+      <p>
+        <sub>Auto refresh counter: {{refreshViewCount}}</sub>
+      </p>
+      <div class="alert-warning">{{customerGroupsError}}</div>
+    </div>
+  </div>
+</div>
