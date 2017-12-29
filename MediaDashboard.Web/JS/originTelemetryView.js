@@ -18,7 +18,7 @@ function ($scope, $http, $interval, APP_CONFIG, params) {
         $scope.refreshViewCount = $scope.refreshViewCount + 1;
         var url = getOriginUrl();
         $http.get(url).then(function (response){
-            $scope.metricGroups = response.response.response.response.data;
+            $scope.metricGroups = response.data;
             $scope.lastRefreshTime = new Date();
         }).catch(function (response) {
             $scope.error = response.data;
